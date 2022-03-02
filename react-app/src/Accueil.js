@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import {Carousel, Col, Container} from 'react-bootstrap'
+import NavSite from './Navbar';
 
 class Accueil extends Component {
 
     render() {
     return (
+      <>
+      <NavSite/>
         <Carousel>
           <Carousel.Item interval={2000}>
             <img
@@ -28,6 +31,7 @@ class Accueil extends Component {
             />
           </Carousel.Item>
         </Carousel>
+      </>
     );
   }
 }
