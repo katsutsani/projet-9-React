@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 
-class Accueil extends Component {
+class Autres_Univers extends Component {
 
     render() {
     return (
       <div className="row justify-content-arount" style={{ textAlign: 'center', display: 'flex', flexDirection: 'row', alignItems: 'center', marginBottom:"1rem", marginTop:'1rem'}}>
-       <p>Hello World</p>
+       <p>Autres_Univers</p>
       </div>
     );
   }
 }
 
-export default Accueil;
+export default Autres_Univers;
