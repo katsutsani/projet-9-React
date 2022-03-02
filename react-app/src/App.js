@@ -13,6 +13,7 @@ import Livres from './Livres';
 import Produits_dérivés from './Produits_dérivés';
 import Autres_Univers from './Autres_Univers';
 import Panier from './Panier';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function App() {
