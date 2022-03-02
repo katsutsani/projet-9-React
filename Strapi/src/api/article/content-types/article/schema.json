@@ -29,17 +29,26 @@
     "description": {
       "type": "text"
     },
-    "categorie": {
-      "type": "string"
-    },
-    "univers": {
-      "type": "string"
-    },
     "new": {
       "type": "boolean"
     },
-    "sous_categorie": {
-      "type": "string"
+    "category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::category.category",
+      "inversedBy": "articles"
+    },
+    "sub_category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::sub-category.sub-category",
+      "inversedBy": "articles"
+    },
+    "univer": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::univers.univers",
+      "inversedBy": "articles"
     }
   }
 }
