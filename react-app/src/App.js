@@ -14,10 +14,12 @@ import Produits_dérivés from './Produits_dérivés';
 import Autres_Univers from './Autres_Univers';
 import Panier from './Panier';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import React,{ Component } from 'react';
 
 
-function App() {
-  return (
+class App extends Component {
+  render() {
+    return (
     <Router>
       <Routes>
         <Route exact path='/' element={<Accueil />} />
@@ -28,11 +30,10 @@ function App() {
         <Route exact path='/produits-dérivés' element={<Produits_dérivés />} />
         <Route exact path='/autres-univers' element={<Autres_Univers />} />
         <Route exact path='/panier' element={<Panier />} />
-
-
       </Routes>
     </Router>
-  )
+    )
+  }
 }
 
 export default App;
