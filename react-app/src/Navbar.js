@@ -11,8 +11,8 @@ class NavSite extends Component {
                         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                         <Navbar.Collapse id="responsive-navbar-nav">
                             <Nav className="me-auto">
-                                <NavDropdown title="Dofus">
-                                    <NavDropdown.Item><Link to="/dofus" class='center'>Dofus</Link></NavDropdown.Item>
+                            <NavDropdown title="Dofus" id="collasible-nav-dropdown">
+                                    <NavDropdown.Item><Link to="/dofus" class='center'>Wakfu</Link></NavDropdown.Item>
                                     <NavDropdown.Divider />
                                     <NavDropdown.Item><Link to="/"></Link>Another action</NavDropdown.Item>
                                     <NavDropdown.Item><Link to="/"></Link>Something</NavDropdown.Item>

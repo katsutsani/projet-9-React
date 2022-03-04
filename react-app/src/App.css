@@ -58,6 +58,12 @@
   margin-top: 3%;
 }
 
+.dropdown_search{
+  background-color: blanchedalmond !important;
+  border-color: blanchedalmond !important;
+  box-shadow:none!important;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
