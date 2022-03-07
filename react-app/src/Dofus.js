@@ -6,6 +6,7 @@ import NavSite from './Navbar';
 function Dofus(props) {
   var category = null;
   var Univers = null;
+  const id = window.location.href.substring(window.location.href.lastIndexOf('/') + 1);
   return (
     <>
       <NavSite />
@@ -19,7 +20,7 @@ function Dofus(props) {
               </Dropdown.Toggle>
               <Dropdown.Menu>
                 {props.categories && props.categories.map((category) =>
-                  <Dropdown.Item><Link to="/">{category.attributes.name}</Link></Dropdown.Item>
+                  <Dropdown.Item><Link to={"/"+category.attributes.name.toLowerCase()}>{category.attributes.name}</Link></Dropdown.Item>
                 )}
               </Dropdown.Menu>
             </Dropdown>
@@ -30,7 +31,7 @@ function Dofus(props) {
               </Dropdown.Toggle>
               <Dropdown.Menu>
                 {props.sub_categories && props.sub_categories.map((sub_category) =>
-                  <Dropdown.Item><Link to="/">{sub_category.attributes.name}</Link></Dropdown.Item>
+                  <Dropdown.Item><Link to={window.location.pathname+"?"+sub_category.attributes.name.toLowerCase()}>{sub_category.attributes.name}</Link></Dropdown.Item>
                 )}
               </Dropdown.Menu>
             </Dropdown>
@@ -41,7 +42,7 @@ function Dofus(props) {
               </Dropdown.Toggle>
               <Dropdown.Menu>
                 {props.Universs && props.Universs.map((Univers) =>
-                  <Dropdown.Item><Link to="/">{Univers.attributes.name}</Link></Dropdown.Item>
+                  <Dropdown.Item><Link to={"/"+Univers.attributes.name.toLowerCase()}>{Univers.attributes.name}</Link></Dropdown.Item>
                 )}
               </Dropdown.Menu>
             </Dropdown>
