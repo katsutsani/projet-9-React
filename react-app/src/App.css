@@ -32,12 +32,28 @@
   color: #61dafb;
 }
 
-.logoNav{
+.titleCard{
+  margin-top: -100px !important;
+  margin-left: 120px;
+}
+
+.descCard{
+  margin-top:30px;
+  margin-left: 120px;
+}
+
+.ImgCard{
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.logoNav {
   margin-left: 1000px;
 }
 
-.around_articles{
+.around_articles {
   background-color: blanchedalmond;
+  margin-top: -50%;
   padding-top: 2%;
   padding-bottom: 2%;
   padding-left: 2% !important;
@@ -45,29 +61,48 @@
   border-radius: 10px;
 }
 
-.search{
+.panel {
   background-color: blanchedalmond;
   padding-top: 2%;
   padding-bottom: 2%;
+  margin-left: 300px;
   padding-left: 2% !important;
   padding-right: 2% !important;
   border-radius: 10px;
+  box-sizing: content-box;
+  position: sticky;
+  width: 15%;
+  top: 20%;
+  align-self: start;
 }
 
-.contain_article{
-  margin-top: 3%;
+
+.contain_article {
+  margin-top: -192px;
 }
 
-.dropdown_search{
+.dropdown_search {
   background-color: blanchedalmond !important;
   border-color: blanchedalmond !important;
-  box-shadow:none!important;
+  box-shadow: none !important;
+}
+
+.BtnAddCart{
+  width: 100px;
+  margin-left: 85%;
+  margin-top: -10%;
+}
+
+.viewButton{
+  margin-left: 87%;
+  margin-top: -25%;
 }
 
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
