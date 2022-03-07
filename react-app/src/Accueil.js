@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Card, Button, Carousel, Col, Container, Row } from 'react-bootstrap'
 import NavSite from './Navbar';
 import FooterPage from './Footer';
-import SimpleReactFooter from "simple-react-footer";
 
 class Accueil extends Component {
 
