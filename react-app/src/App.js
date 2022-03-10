@@ -12,6 +12,7 @@ import Livres from './Livres';
 import Produits_dérivés from './Produits_dérivés';
 import Autres_Univers from './Autres_Univers';
 import Panier from './Panier';
+import Article from './Article';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { Component } from 'react';
 
@@ -111,6 +112,13 @@ class App extends Component {
             panier={this.state.panier}
             addToCart={this.addToCart} />} />
           <Route exact path='/panier' element={<Panier
+            articles={this.state.articles}
+            categories={this.state.categories}
+            sub_categories={this.state.sub_categories}
+            Universs={this.state.Univers}
+            panier={this.state.panier}
+            addToCart={this.addToCart} />} />
+          <Route exact path='/article' element={<Article
             articles={this.state.articles}
             categories={this.state.categories}
             sub_categories={this.state.sub_categories}
