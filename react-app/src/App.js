@@ -117,7 +117,7 @@ class App extends Component {
             Universs={this.state.Univers}
             panier={this.state.panier}
             addToCart={this.addToCart} />} />
-          <Route exact path='/article' element={<Article
+          <Route exact path='/article/:id' element={<Article
             articles={this.state.articles}
             categories={this.state.categories}
             sub_categories={this.state.sub_categories}

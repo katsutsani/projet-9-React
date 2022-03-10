@@ -51,7 +51,7 @@
       "inversedBy": "articles"
     },
     "prix": {
-      "type": "float"
+      "type": "decimal"
     }
   }
 }

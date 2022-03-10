@@ -2,24 +2,43 @@ import React, { Component } from 'react';
 import { Card, Button, Carousel, Col, Container, Row } from 'react-bootstrap'
 import NavSite from './Navbar';
 import FooterPage from './Footer';
+import { Link } from 'react-router-dom';
 
 const ColoredLine = ({ color }) => (
   <hr
-      style={{
-          color: color,
-          backgroundColor: color,
-          height: 3
-      }}
+    style={{
+      color: color,
+      backgroundColor: color,
+      height: 3
+    }}
   />
 );
 
 class Accueil extends Component {
-
-
-  render() {
+  constructor(props) {
+    super(props)
+    this.state = {
+      articles: [],
+    }
+  }
+  async UNSAFE_componentWillReceiveProps(){
+    const showArticles = this.props.articles.filter((article, key) => article.attributes.new == true)
+    this.setState({
+      articles: showArticles
+    }, () => console.log(this.state.articles))
+  }
+  async componentDidMount() {
+    console.log(this.props.articles)
+    const showArticles = this.props.articles.filter((article, key) => article.attributes.new == true)
+    this.setState({
+      articles: showArticles
+    }, () => console.log(this.state.articles))
+  }
+  render() {   
+    var img = 0
     return (
       <>
-        <NavSite panier={this.props.panier}/>
+        <NavSite panier={this.props.panier} />
         <Carousel fade indicators={false} interval={2000}>
           <Carousel.Item>
             <img
@@ -65,58 +84,26 @@ class Accueil extends Component {
                 <Col>
                   <Container className='p-0'>
                     <Row>
-                      <Col>
-                        <Card style={{ width: '18rem' }}>
-                          <Card.Img variant="top" src="http://localhost:1337/uploads/unfollow_jueliger_f446f8a253.png?updated_at=2022-03-04T13:30:13.534Z" />
-                          <Card.Body>
-                            <Card.Title>Card Title</Card.Title>
-                            <Card.Text>
-                              Some quiclasck example text to build on the card title and make up the bulk of
-                              the card's content.
-                            </Card.Text>
-                            <Button variant="outline-dark" className="text-uppercase">voir</Button>
-                          </Card.Body>
-                        </Card>
-                      </Col>
-                      <Col>
-                        <Card style={{ width: '18rem' }}>
-                          <Card.Img variant="top" src="http://localhost:1337/uploads/mutafukaz_1886_integrale_run_hutt_153dd9e526.png?updated_at=2022-03-04T13:30:13.510Z" />
-                          <Card.Body>
-                            <Card.Title>Card Title</Card.Title>
-                            <Card.Text>
-                              Some quick example text to build on the card title and make up the bulk of
-                              the card's content.
-                            </Card.Text>
-                            <Button variant="outline-dark" className="text-uppercase">voir</Button>
-                          </Card.Body>
-                        </Card>
-                      </Col>
-                      <Col>
-                        <Card style={{ width: '18rem' }}>
-                          <Card.Img variant="top" src="http://localhost:1337/uploads/peluche_tofu_royal_dofus_b19b339e24.png?updated_at=2022-03-04T13:30:13.493Z" />
-                          <Card.Body>
-                            <Card.Title>Card Title</Card.Title>
-                            <Card.Text>
-                              Some quick example text to build on the card title and make up the bulk of
-                              the card's content.
-                            </Card.Text>
-                            <Button variant="outline-dark" className="text-uppercase">voir</Button>
-                          </Card.Body>
-                        </Card>
-                      </Col>
-                      <Col>
-                        <Card style={{ width: '18rem' }}>
-                          <Card.Img variant="top" src="http://localhost:1337/uploads/adlivun_balzano_ce74be1ad4.png?updated_at=2022-03-04T13:30:13.492Z" />
-                          <Card.Body>
-                            <Card.Title>Card Title</Card.Title>
-                            <Card.Text>
-                              Some quick example text to build on the card title and make up the bulk of
-                              the card's content.
-                            </Card.Text>
-                            <Button variant="outline-dark" className="text-uppercase">voir</Button>
-                          </Card.Body>
-                        </Card>
-                      </Col>
+
+                      {this.state.articles.map((article) =>
+                        article.attributes && img < 4 ? (
+                          <>
+                            <Col>
+                              <Card style={{ width: '18rem' }}>
+                                <Card.Img variant="top" src={"http://localhost:1337" + article.attributes.image.data[0].attributes.url} />
+                                <Card.Body>
+                                  <Card.Title>{article.attributes.name}</Card.Title>
+                                  <Card.Text>
+                                    {article.attributes.description}
+                                  </Card.Text>
+                                  <Link to={"/article/" + article.id}><Button className="text-uppercase">View</Button></Link>
+                                </Card.Body>
+                              </Card>
+                            </Col>
+                            {console.log(img++)}
+                          </>
+                        ) : ("")
+                      )}
                     </Row>
                   </Container>
                 </Col>
@@ -129,58 +116,25 @@ class Accueil extends Component {
                 <Col>
                   <Container className='p-0'>
                     <Row>
-                      <Col>
-                        <Card style={{ width: '18rem' }}>
-                          <Card.Img variant="top" src="http://localhost:1337/uploads/pack_2_bieres_75_cl_la_shushette_dbdb36b256.png?updated_at=2022-03-04T13:30:13.476Z" />
-                          <Card.Body>
-                            <Card.Title>Card Title</Card.Title>
-                            <Card.Text>
-                              Some quiclasck example text to build on the card title and make up the bulk of
-                              the card's content.
-                            </Card.Text>
-                            <Button variant="outline-dark" className="text-uppercase">voir</Button>
-                          </Card.Body>
-                        </Card>
-                      </Col>
-                      <Col>
-                        <Card style={{ width: '18rem' }}>
-                          <Card.Img variant="top" src="http://localhost:1337/uploads/bouteille_reutilisable_princesse_dragon_f5b50a23b3.png?updated_at=2022-03-04T13:30:13.471Z" />
-                          <Card.Body>
-                            <Card.Title>Card Title</Card.Title>
-                            <Card.Text>
-                              Some quick example text to build on the card title and make up the bulk of
-                              the card's content.
-                            </Card.Text>
-                            <Button variant="outline-dark" className="text-uppercase">voir</Button>
-                          </Card.Body>
-                        </Card>
-                      </Col>
-                      <Col>
-                        <Card style={{ width: '18rem' }}>
-                          <Card.Img variant="top" src="http://localhost:1337/uploads/coffret_pendentifs_dofus_ebene_et_ivoire_en_cristal_3eb2a0388c.png?updated_at=2022-03-04T14:44:22.231Z" />
-                          <Card.Body>
-                            <Card.Title>Card Title</Card.Title>
-                            <Card.Text>
-                              Some quick example text to build on the card title and make up the bulk of
-                              the card's content.
-                            </Card.Text>
-                            <Button variant="outline-dark" className="text-uppercase">voir</Button>
-                          </Card.Body>
-                        </Card>
-                      </Col>
-                      <Col>
-                        <Card style={{ width: '18rem' }}>
-                          <Card.Img variant="top" src="http://localhost:1337/uploads/genpet_damian_fuentes_486b5b2b2c.png?updated_at=2022-03-04T14:44:22.291Z" />
-                          <Card.Body>
-                            <Card.Title>Card Title</Card.Title>
-                            <Card.Text>
-                              Some quick example text to build on the card title and make up the bulk of
-                              the card's content.
-                            </Card.Text>
-                            <Button variant="outline-dark" className="text-uppercase">voir</Button>
-                          </Card.Body>
-                        </Card>
-                      </Col>
+                      {this.state.articles.map((article) =>
+                        article.attributes && img >= 4 && img < 8 ? (
+                          <>
+                            <Col>
+                              <Card style={{ width: '18rem' }}>
+                                <Card.Img variant="top" src={"http://localhost:1337" + article.attributes.image.data[0].attributes.url} />
+                                <Card.Body>
+                                  <Card.Title>{article.attributes.name}</Card.Title>
+                                  <Card.Text>
+                                    {article.attributes.description}
+                                  </Card.Text>
+                                  <Link to={"/article/" + article.id}><Button className="text-uppercase">View</Button></Link>
+                                </Card.Body>
+                              </Card>
+                            </Col>
+                            {console.log(img++)}
+                          </>
+                        ) : ("")
+                      )}
                     </Row>
                   </Container>
                 </Col>

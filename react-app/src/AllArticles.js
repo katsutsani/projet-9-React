@@ -50,10 +50,6 @@ class AllArticles extends Component {
 
     }, () => console.log("worked"))
   }
-
-  LinkToArticle = (id) =>{
-    window.location = "http://localhost:3000/article/"+id
-  }
   render() {
     const showArticles = this.props.articles.filter((article, key) => article.attributes.name.toLowerCase().includes(this.state.search && this.state.search.toLowerCase()))
     return (
@@ -152,8 +148,8 @@ class AllArticles extends Component {
                                 <Card.Text className='descCardImg'>
                                   {articles.attributes.description}
                                 </Card.Text>
-                                <Button className="viewButtonImg"onClick={() => this.LinkToArticle(articles.id)}>View</Button>
-                                <Button className="BtnAddCartImg" onClick={() => this.props.addToCart(articles.attributes)}>Ajouter au Panier</Button>
+                                <Link to={"/article/"+articles.id}><Button className="viewButton">View</Button></Link>
+                                <Button className="BtnAddCartImg" onClick={() => this.props.addToCart(articles)}>Ajouter au Panier</Button>
                               </Card.Body>
                             ) : (
                               <Card.Body>
@@ -163,8 +159,8 @@ class AllArticles extends Component {
                                 <Card.Text className='descCard'>
                                   {articles.attributes.description}
                                 </Card.Text>
-                                <Button className="viewButton"onClick={() => this.LinkToArticle(articles.id)}>View</Button>
-                                <Button className="BtnAddCart" onClick={() => this.props.addToCart(articles.attributes)}>Ajouter au Panier</Button>
+                                <Link to={"/article/"+articles.id}><Button className="viewButton">View</Button></Link>
+                                <Button className="BtnAddCart" onClick={() => this.props.addToCart(articles)}>Ajouter au Panier</Button>
                               </Card.Body>
                             )}
                           </Card>
@@ -186,8 +182,8 @@ class AllArticles extends Component {
                                     <Card.Text className='descCardImg'>
                                       {articles.attributes.description}
                                     </Card.Text>
-                                    <Button className="viewButtonImg"onClick={() => this.LinkToArticle(articles.id)}>View</Button>
-                                    <Button className="BtnAddCartImg" onClick={() => this.props.addToCart(articles.attributes)}>Ajouter au Panier</Button>
+                                    <Link to={"/article/"+articles.id}><Button className="viewButton">View</Button></Link>
+                                    <Button className="BtnAddCartImg" onClick={() => this.props.addToCart(articles)}>Ajouter au Panier</Button>
                                   </Card.Body>
                                 </> : (
                                   <Card.Body>
@@ -197,8 +193,8 @@ class AllArticles extends Component {
                                     <Card.Text className='descCard'>
                                       {articles.attributes.description}
                                     </Card.Text>
-                                    <Button className="viewButton"onClick={() => this.LinkToArticle(articles.id)}>View</Button>
-                                    <Button className="BtnAddCart" onClick={() => this.props.addToCart(articles.attributes)}>Ajouter au Panier</Button>
+                                    <Link to={"/article/"+articles.id}><Button className="viewButton">View</Button></Link>
+                                    <Button className="BtnAddCart" onClick={() => this.props.addToCart(articles)}>Ajouter au Panier</Button>
                                   </Card.Body>
                                 )}
                             </Card>
@@ -218,8 +214,8 @@ class AllArticles extends Component {
                                       <Card.Text className='descCardImg'>
                                         {articles.attributes.description}
                                       </Card.Text>
-                                      <Button className="viewButtonImg"onClick={() => this.LinkToArticle(articles.id)}>View</Button>
-                                      <Button className="BtnAddCartImg" onClick={() => this.props.addToCart(articles.attributes)}>Ajouter au Panier</Button>
+                                      <Link to={"/article/"+articles.id}><Button className="viewButton">View</Button></Link>
+                                      <Button className="BtnAddCartImg" onClick={() => this.props.addToCart(articles)}>Ajouter au Panier</Button>
                                     </Card.Body>
                                   </> : (
                                     <Card.Body>
@@ -229,8 +225,8 @@ class AllArticles extends Component {
                                       <Card.Text className='descCard'>
                                         {articles.attributes.description}
                                       </Card.Text>
-                                      <Button className="viewButton"onClick={() => this.LinkToArticle(articles.id)}>View</Button>
-                                      <Button className="BtnAddCart" onClick={() => this.props.addToCart(articles.attributes)}>Ajouter au Panier</Button>
+                                      <Link to={"/article/"+articles.id}><Button className="viewButton">View</Button></Link>
+                                      <Button className="BtnAddCart" onClick={() => this.props.addToCart(articles)}>Ajouter au Panier</Button>
                                     </Card.Body>
                                   )}
                               </Card>
@@ -249,8 +245,8 @@ class AllArticles extends Component {
                                         <Card.Text className='descCardImg'>
                                           {articles.attributes.description}
                                         </Card.Text>
-                                        <Button className="viewButtonImg"onClick={() => this.LinkToArticle(articles.id)}>View</Button>
-                                        <Button className="BtnAddCartImg" onClick={() => this.props.addToCart(articles.attributes)}>Ajouter au Panier</Button>
+                                        <Link to={"/article/"+articles.id}><Button className="viewButton">View</Button></Link>
+                                        <Button className="BtnAddCartImg" onClick={() => this.props.addToCart(articles)}>Ajouter au Panier</Button>
                                       </Card.Body>
                                     </> : (
                                       <Card.Body>
@@ -260,8 +256,8 @@ class AllArticles extends Component {
                                         <Card.Text className='descCard'>
                                           {articles.attributes.description}
                                         </Card.Text>
-                                        <Button className="viewButton"onClick={() => this.LinkToArticle(articles.id)}>View</Button>
-                                        <Button className="BtnAddCart" onClick={() => this.props.addToCart(articles.attributes)}>Ajouter au Panier</Button>
+                                        <Link to={"/article/"+articles.id}><Button className="viewButton">View</Button></Link>
+                                        <Button className="BtnAddCart" onClick={() => this.props.addToCart(articles)}>Ajouter au Panier</Button>
                                       </Card.Body>
                                     )}
                                 </Card>
@@ -280,8 +276,8 @@ class AllArticles extends Component {
                                           <Card.Text className='descCardImg'>
                                             {articles.attributes.description}
                                           </Card.Text>
-                                          <Button className="viewButtonImg"onClick={() => this.LinkToArticle(articles.id)}>View</Button>
-                                          <Button className="BtnAddCartImg" onClick={() => this.props.addToCart(articles.attributes)}>Ajouter au Panier</Button>
+                                          <Link to={"/article/"+articles.id}><Button className="viewButton">View</Button></Link>
+                                          <Button className="BtnAddCartImg" onClick={() => this.props.addToCart(articles)}>Ajouter au Panier</Button>
                                         </Card.Body>
                                       </> : (
                                         <Card.Body>
@@ -291,8 +287,8 @@ class AllArticles extends Component {
                                           <Card.Text className='descCard'>
                                             {articles.attributes.description}
                                           </Card.Text>
-                                          <Button className="viewButton"onClick={() => this.LinkToArticle(articles.id)}>View</Button>
-                                          <Button className="BtnAddCart" onClick={() => this.props.addToCart(articles.attributes)}>Ajouter au Panier</Button>
+                                          <Link to={"/article/"+articles.id}><Button className="viewButton">View</Button></Link>
+                                          <Button className="BtnAddCart" onClick={() => this.props.addToCart(articles)}>Ajouter au Panier</Button>
                                         </Card.Body>
                                       )}
                                   </Card>
@@ -321,8 +317,8 @@ class AllArticles extends Component {
                                   <Card.Text className='descCardImg'>
                                     {article.attributes.description}
                                   </Card.Text>
-                                  <Button className="viewButtonImg"onClick={() => this.LinkToArticle(article.id)}>View</Button>
-                                  <Button className="BtnAddCartImg" onClick={() => this.props.addToCart(article.attributes)}>Ajouter au Panier</Button>
+                                 <Link to={"/article/"+article.id}><Button className="viewButtonImg">View</Button></Link>
+                                  <Button className="BtnAddCartImg" onClick={() => this.props.addToCart(article)}>Ajouter au Panier</Button>
                                 </Card.Body>
                               ) : (
                                 <Card.Body>
@@ -332,8 +328,8 @@ class AllArticles extends Component {
                                   <Card.Text className='descCard'>
                                     {article.attributes.description}
                                   </Card.Text>
-                                  <Button className="viewButton"onClick={() => this.LinkToArticle(article.id)}>View</Button>
-                                  <Button className="BtnAddCart" onClick={() => this.props.addToCart(article.attributes)}>Ajouter au Panier</Button>
+                                 <Link to={"/article/"+article.id}><Button className="viewButton">View</Button></Link>
+                                  <Button className="BtnAddCart" onClick={() => this.props.addToCart(article)}>Ajouter au Panier</Button>
                                 </Card.Body>
                               )}
                             </Card>
@@ -355,8 +351,8 @@ class AllArticles extends Component {
                                       <Card.Text className='descCardImg'>
                                         {article.attributes.description}
                                       </Card.Text>
-                                      <Button className="viewButtonImg"onClick={() => this.LinkToArticle(article.id)}>View</Button>
-                                      <Button className="BtnAddCartImg" onClick={() => this.props.addToCart(article.attributes)}>Ajouter au Panier</Button>
+                                     <Link to={"/article/"+article.id}><Button className="viewButtonImg">View</Button></Link>
+                                      <Button className="BtnAddCartImg" onClick={() => this.props.addToCart(article)}>Ajouter au Panier</Button>
                                     </Card.Body>
                                   </> : (
                                     <Card.Body>
@@ -366,8 +362,8 @@ class AllArticles extends Component {
                                       <Card.Text className='descCard'>
                                         {article.attributes.description}
                                       </Card.Text>
-                                      <Button className="viewButton"onClick={() => this.LinkToArticle(article.id)}>View</Button>
-                                      <Button className="BtnAddCart" onClick={() => this.props.addToCart(article.attributes)}>Ajouter au Panier</Button>
+                                     <Link to={"/article/"+article.id}><Button className="viewButton">View</Button></Link>
+                                      <Button className="BtnAddCart" onClick={() => this.props.addToCart(article)}>Ajouter au Panier</Button>
                                     </Card.Body>
                                   )}
                               </Card>
@@ -387,8 +383,8 @@ class AllArticles extends Component {
                                         <Card.Text className='descCardImg'>
                                           {article.attributes.description}
                                         </Card.Text>
-                                        <Button className="viewButtonImg"onClick={() => this.LinkToArticle(article.id)}>View</Button>
-                                        <Button className="BtnAddCartImg" onClick={() => this.props.addToCart(article.attributes)}>Ajouter au Panier</Button>
+                                       <Link to={"/article/"+article.id}><Button className="viewButtonImg">View</Button></Link>
+                                        <Button className="BtnAddCartImg" onClick={() => this.props.addToCart(article)}>Ajouter au Panier</Button>
                                       </Card.Body>
                                     </> : (
                                       <Card.Body>
@@ -398,8 +394,8 @@ class AllArticles extends Component {
                                         <Card.Text className='descCard'>
                                           {article.attributes.description}
                                         </Card.Text>
-                                        <Button className="viewButton" onClick={() => this.LinkToArticle(article.id)}>View</Button>
-                                        <Button className="BtnAddCart" onClick={() => this.props.addToCart(article.attributes)}>Ajouter au Panier</Button>
+                                        <Button className="viewButton" >View</Button>
+                                        <Button className="BtnAddCart" onClick={() => this.props.addToCart(article)}>Ajouter au Panier</Button>
                                       </Card.Body>
                                     )}
                                 </Card>
@@ -418,8 +414,8 @@ class AllArticles extends Component {
                                           <Card.Text className='descCardImg'>
                                             {article.attributes.description}
                                           </Card.Text>
-                                          <Button className="viewButtonImg"onClick={() => this.LinkToArticle(article.id)}>View</Button>
-                                          <Button className="BtnAddCartImg" onClick={() => this.props.addToCart(article.attributes)}>Ajouter au Panier</Button>
+                                         <Link to={"/article/"+article.id}><Button className="viewButtonImg">View</Button></Link>
+                                          <Button className="BtnAddCartImg" onClick={() => this.props.addToCart(article)}>Ajouter au Panier</Button>
                                         </Card.Body>
                                       </> : (
                                         <Card.Body>
@@ -429,8 +425,8 @@ class AllArticles extends Component {
                                           <Card.Text className='descCard'>
                                             {article.attributes.description}
                                           </Card.Text>
-                                          <Button className="viewButton"onClick={() => this.LinkToArticle(article.id)}>View</Button>
-                                          <Button className="BtnAddCart" onClick={() => this.props.addToCart(article.attributes)}>Ajouter au Panier</Button>
+                                         <Link to={"/article/"+article.id}><Button className="viewButton">View</Button></Link>
+                                          <Button className="BtnAddCart" onClick={() => this.props.addToCart(article)}>Ajouter au Panier</Button>
                                         </Card.Body>
                                       )}
                                   </Card>
@@ -449,8 +445,8 @@ class AllArticles extends Component {
                                             <Card.Text className='descCardImg'>
                                               {article.attributes.description}
                                             </Card.Text>
-                                            <Button className="viewButtonImg"onClick={() => this.LinkToArticle(article.id)}>View</Button>
-                                            <Button className="BtnAddCartImg" onClick={() => this.props.addToCart(article.attributes)}>Ajouter au Panier</Button>
+                                           <Link to={"/article/"+article.id}><Button className="viewButtonImg">View</Button></Link>
+                                            <Button className="BtnAddCartImg" onClick={() => this.props.addToCart(article)}>Ajouter au Panier</Button>
                                           </Card.Body>
                                         </> : (
                                           <Card.Body>
@@ -460,8 +456,8 @@ class AllArticles extends Component {
                                             <Card.Text className='descCard'>
                                               {article.attributes.description}
                                             </Card.Text>
-                                            <Button className="viewButton"onClick={() => this.LinkToArticle(article.id)}>View</Button>
-                                            <Button className="BtnAddCart" onClick={() => this.props.addToCart(article.attributes)}>Ajouter au Panier</Button>
+                                           <Link to={"/article/"+article.id}><Button className="viewButton">View</Button></Link>
+                                            <Button className="BtnAddCart" onClick={() => this.props.addToCart(article)}>Ajouter au Panier</Button>
                                           </Card.Body>
                                         )}
                                     </Card>
