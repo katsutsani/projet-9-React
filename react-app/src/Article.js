@@ -71,7 +71,7 @@ class Article extends Component {
                                                 href="https://twitter.com/ankamaeditions"
                                                 target="_blank"
                                                 className="p-1">
-                                                <IconContext.Provider value={{ color: "#78C4FF", size: '47px' }}>
+                                                <IconContext.Provider value={{ color: "#78C4FF", size: '44px' }}>
                                                     <div>
                                                         <AiFillTwitterCircle />
                                                     </div>

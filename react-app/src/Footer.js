@@ -111,8 +111,9 @@ class FooterPage extends Component {
                             <Col className='p-2'>
                                 <a
                                     href="https://twitter.com/ankamaeditions"
-                                    target="_blank">
-                                    <IconContext.Provider value={{ color: "black", size: '30px' }}>
+                                    target="_blank"
+                                    className="p-1">
+                                    <IconContext.Provider value={{ color: "#78C4FF", size: '27px' }}>
                                         <div>
                                             <AiFillTwitterCircle />
                                         </div>
@@ -122,8 +123,9 @@ class FooterPage extends Component {
                             <Col className='p-2'>
                                 <a
                                     href="https://fr-fr.facebook.com/DOFUS"
-                                    target="_blank">
-                                    <IconContext.Provider value={{ color: "black", size: '30px' }}>
+                                    target="_blank"
+                                    className="p-1">
+                                    <IconContext.Provider value={{ color: "#657CCD", size: '24px' }}>
                                         <div>
                                             <BsFacebook />
                                         </div>
@@ -133,8 +135,9 @@ class FooterPage extends Component {
                             <Col className='p-2'>
                                 <a
                                     href="https://www.youtube.com/user/AnkamaTV"
-                                    target="_blank">
-                                    <IconContext.Provider value={{ color: "black", size: '30px' }}>
+                                    target="_blank"
+                                    className="p-1">
+                                    <IconContext.Provider value={{ color: "#C3171D", size: '25px' }}>
                                         <div>
                                             <BsYoutube />
                                         </div>
