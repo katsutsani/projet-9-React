@@ -12,20 +12,52 @@ class Dofus extends Component {
       sub_categoryUrl: null,
       isUnivers: null,
       isCategory: null,
+      search: null
     }
   }
   async componentDidMount() {
-    const queryParams = new URLSearchParams(window.location.search);
-    const sub_category = queryParams.get('sub-category');
-    const category = queryParams.get('category');
-    const Univers = queryParams.get('univers');
+    this.getInitialValue()
+    const queryString = await window.location.search;
+    const urlParams = await new URLSearchParams(queryString);
+    const sub_category = await urlParams.get('sub-category');
+    const category = await urlParams.get('category');
+    const Univers = await urlParams.get('univers');
     this.setState({ universUrl: Univers, categoryUrl: category, sub_categoryUrl: sub_category })
   }
+
+  handleChange = (e) => {
+    e.preventDefault()
+    let name = e.target.name
+    if (e.target.value != null) {
+      this.setState({
+        [name]: e.target.value
+      })
+    }
+    else {
+      this.setState({ [name]: "nothing" })
+    }
+
+  }
+
+  getInitialValue = () => {
+    this.setState({
+      universUrl: null,
+      categoryUrl: null,
+      sub_categoryUrl: null,
+      isUnivers: null,
+      isCategory: null,
+      search: null,
+
+    }, () => console.log("worked"))
+  }
   render() {
+    const showArticles = this.props.articles.filter((article, key) => article.attributes.name.toLowerCase().includes(this.state.search && this.state.search.toLowerCase()))
     return (
       <>
         <NavSite />
         <nav class="panel">
+          <h2 class="text-center">Affinage de recherche</h2>
+          <input class="search-bar"type="text" name="search" value={this.state.search && this.state.search != "nothing" ? (this.state.search) : ("")} onChange={(e) => this.handleChange(e)}></input>
           <h2 class="text-center">Catégories</h2>
           <Dropdown className="text-center">
             <Dropdown.Toggle variant="success" id="dropdown-basic" className="dropdown_search text-black">
@@ -35,9 +67,9 @@ class Dofus extends Component {
               {this.props.categories && this.props.categories.map((category) =>
                 category.attributes.name === window.location.href.substring(window.location.href.lastIndexOf('/') + 1) || this.state.isCategory === "Yes" ? (
                   this.state.isCategory === "Yes" ? (
-                    <Dropdown.Item className="text-center"><Link to={"/" + category.attributes.name.toLowerCase()} onClick={() => this.setState({ universUrl: null, sub_categoryUrl: null })}>{category.attributes.name}</Link></Dropdown.Item>
+                    <Dropdown.Item className="text-center"><Link to={"/" + category.attributes.name.toLowerCase()} onClick={() => this.getInitialValue()}>{category.attributes.name}</Link></Dropdown.Item>
                   ) : (
-                    <Dropdown.Item className="text-center"><Link to={"/" + category.attributes.name.toLowerCase()} onClick={() => this.setState({ universUrl: null, sub_categoryUrl: null })}>{category.attributes.name}</Link></Dropdown.Item>,
+                    <Dropdown.Item className="text-center"><Link to={"/" + category.attributes.name.toLowerCase()} onClick={() => this.getInitialValue()}>{category.attributes.name}</Link></Dropdown.Item>,
                     this.setState({ isCategory: "Yes" })
                   )
                 ) : (
@@ -79,9 +111,9 @@ class Dofus extends Component {
               {this.props.Universs && this.props.Universs.map((Univers) =>
                 Univers.attributes.name.toLowerCase() === window.location.pathname.substring(window.location.pathname.lastIndexOf("/") + 1) || this.state.isUnivers === "Yes" ? (
                   this.state.isUnivers === "Yes" ? (
-                    <Dropdown.Item className="text-center"><Link to={"/" + Univers.attributes.name.toLowerCase()} onClick={() => this.setState({ categoryUrl: null, sub_categoryUrl: null })}>{Univers.attributes.name}</Link></Dropdown.Item>
+                    <Dropdown.Item className="text-center"><Link to={"/" + Univers.attributes.name.toLowerCase()} onClick={() => this.getInitialValue()}>{Univers.attributes.name}</Link></Dropdown.Item>
                   ) : (
-                    <Dropdown.Item className="text-center"><Link to={"/" + Univers.attributes.name.toLowerCase()} onClick={() => this.setState({ categoryUrl: null, sub_categoryUrl: null })}>{Univers.attributes.name}</Link></Dropdown.Item>,
+                    <Dropdown.Item className="text-center"><Link to={"/" + Univers.attributes.name.toLowerCase()} onClick={() => this.getInitialValue()}>{Univers.attributes.name}</Link></Dropdown.Item>,
                     this.setState({ isUnivers: "Yes" })
                   )
                 ) : (
@@ -99,51 +131,354 @@ class Dofus extends Component {
         <Container className="contain_article">
           <Row>
             <Col className="around_articles" xs={{ offset: 5 }}><Row xs={1} md={1} className="g-4">
-              {console.log(window.location.pathname.substring(window.location.pathname.lastIndexOf("/") + 1))}
-              {this.props.articles && this.props.articles.map((article) =>
-                article.attributes.category.data && article.attributes.category.data.attributes.name.toLowerCase() === window.location.pathname.substring(window.location.pathname.lastIndexOf("/") + 1) ? (
-                  <Col>
-                    <Card>
-                      {article.attributes.image.data ? (
-                        <Card.Img variant="top" src={"http://localhost:1337" + article.attributes.image.data[0].attributes.url} />
-                      ):""}
-                      <Card.Body>
-                        <Card.Title>{article.attributes.name}</Card.Title>
-                        <Card.Text>
-                          {article.attributes.description}
-                        </Card.Text>
-                      </Card.Body>
-                    </Card>
-                  </Col>
-                ) : (
-                  article.attributes.univer.data && article.attributes.univer.data.attributes.name.toLowerCase() === window.location.pathname.substring(window.location.pathname.lastIndexOf("/") + 1) ? (
-                    <Col>
-                      <Card>
-                        {console.log(article.attributes.image.data && article.attributes.image.data[0].attributes)}
-                        {article.attributes.image.data ? (
-                          <img class="ImgCard" variant="top" height="100px" width="100px" src={"http://localhost:1337" + article.attributes.image.data[0].attributes.url} />
+              {
+                <>
+                  {this.state.search != "nothing" && showArticles != "" ? (
+                    showArticles.map((articles, i) =>
+                      articles.attributes.category.data && articles.attributes.category.data.attributes.name.toLowerCase() === window.location.pathname.substring(window.location.pathname.lastIndexOf("/") + 1) ? (
+                        <Col>
+                          <Card className="carte">
+                            {articles.attributes.image.data ? (
+                              <img class="ImgCard" variant="top" height="100px" width="100px" src={"http://localhost:1337" + articles.attributes.image.data[0].attributes.url} />,
+                              <Card.Body>
+                                <Card.Title className='titleCardImg'>
+                                  {articles.attributes.name}
+                                </Card.Title>
+                                <Card.Text className='descCardImg'>
+                                  {articles.attributes.description}
+                                </Card.Text>
+                                <Button className="viewButtonImg">View</Button>
+                                <Button className="BtnAddCartImg" onClick={() => this.props.addToCart(articles.attributes)}>Ajouter au Panier</Button>
+                              </Card.Body>
+                            ) : (
+                              <Card.Body>
+                                <Card.Title className='titleCard'>
+                                  {articles.attributes.name}
+                                </Card.Title>
+                                <Card.Text className='descCard'>
+                                  {articles.attributes.description}
+                                </Card.Text>
+                                <Button className="viewButton">View</Button>
+                                <Button className="BtnAddCart" onClick={() => this.props.addToCart(articles.attributes)}>Ajouter au Panier</Button>
+                              </Card.Body>
+                            )}
+                          </Card>
+                        </Col>
+                      ) : (
+                        articles.attributes.univer.data &&
+                          articles.attributes.univer.data.attributes.name.toLowerCase() === window.location.pathname.substring(window.location.pathname.lastIndexOf("/") + 1) &&
+                          this.state.categoryUrl === null && this.state.sub_categoryUrl === null && this.state.sub_categoryUrl === null ? (
+                          <Col>
+
+                            <Card className="carte">
+                              {articles.attributes.image.data ?
+                                <>
+                                  <img class="ImgCard" variant="top" height="100px" width="100px" src={"http://localhost:1337" + articles.attributes.image.data[0].attributes.url} />
+                                  <Card.Body>
+                                    <Card.Title className='titleCardImg'>
+                                      {articles.attributes.name}
+                                    </Card.Title>
+                                    <Card.Text className='descCardImg'>
+                                      {articles.attributes.description}
+                                    </Card.Text>
+                                    <Button className="viewButtonImg">View</Button>
+                                    <Button className="BtnAddCartImg" onClick={() => this.props.addToCart(articles.attributes)}>Ajouter au Panier</Button>
+                                  </Card.Body>
+                                </> : (
+                                  <Card.Body>
+                                    <Card.Title className='titleCard'>
+                                      {articles.attributes.name}
+                                    </Card.Title>
+                                    <Card.Text className='descCard'>
+                                      {articles.attributes.description}
+                                    </Card.Text>
+                                    <Button className="viewButton">View</Button>
+                                    <Button className="BtnAddCart" onClick={() => this.props.addToCart(articles.attributes)}>Ajouter au Panier</Button>
+                                  </Card.Body>
+                                )}
+                            </Card>
+                          </Col>
                         ) : (
-                          ""
-                        )}
-                      
-                        <Card.Body>
-                          <Card.Title className='titleCard'>{article.attributes.name}</Card.Title>
-                          <Card.Text className='descCard'>
-                            {article.attributes.description}
-                          </Card.Text>
-                          <Button className="viewButton">View</Button>
-                          <Button className="BtnAddCart" onClick={()=>this.props.addToCart(article.attributes)}>Ajouter au Panier</Button>
-                        </Card.Body>
-                      </Card>
-                    </Col>
+                          this.state.universUrl != null && this.state.sub_categoryUrl != null && articles.attributes.univer.data.attributes.name.toLowerCase() === this.state.universUrl && articles.attributes.sub_category.data.attributes.name.toLowerCase() === this.state.sub_categoryUrl ||
+                            this.state.categoryUrl != null && this.state.sub_categoryUrl != null && articles.attributes.category.data.attributes.name.toLowerCase() === this.state.categoryUrl && articles.attributes.sub_category.data.attributes.name.toLowerCase() === this.state.sub_categoryUrl ? (
+                            <Col>
+                              <Card className="carte">
+                                {articles.attributes.image.data ?
+                                  <>
+                                    <img class="ImgCard" variant="top" height="100px" width="100px" src={"http://localhost:1337" + articles.attributes.image.data[0].attributes.url} />
+                                    <Card.Body>
+                                      <Card.Title className='titleCardImg'>
+                                        {articles.attributes.name}
+                                      </Card.Title>
+                                      <Card.Text className='descCardImg'>
+                                        {articles.attributes.description}
+                                      </Card.Text>
+                                      <Button className="viewButtonImg">View</Button>
+                                      <Button className="BtnAddCartImg" onClick={() => this.props.addToCart(articles.attributes)}>Ajouter au Panier</Button>
+                                    </Card.Body>
+                                  </> : (
+                                    <Card.Body>
+                                      <Card.Title className='titleCard'>
+                                        {articles.attributes.name}
+                                      </Card.Title>
+                                      <Card.Text className='descCard'>
+                                        {articles.attributes.description}
+                                      </Card.Text>
+                                      <Button className="viewButton">View</Button>
+                                      <Button className="BtnAddCart" onClick={() => this.props.addToCart(articles.attributes)}>Ajouter au Panier</Button>
+                                    </Card.Body>
+                                  )}
+                              </Card>
+                            </Col>
+                          ) : (
+                            this.state.isUnivers != null && this.state.categoryUrl != null && this.state.sub_categoryUrl === null && articles.attributes.category.data.attributes.name.toLowerCase() === this.state.categoryUrl || this.state.isCategory != null && this.state.universUrl != null && this.state.sub_categoryUrl === null && articles.attributes.univer.data.attributes.name.toLowerCase() === this.state.universUrl ? (
+                              <Col>
+                                <Card className="carte">
+                                  {articles.attributes.image.data ?
+                                    <>
+                                      <img class="ImgCard" variant="top" height="100px" width="100px" src={"http://localhost:1337" + articles.attributes.image.data[0].attributes.url} />
+                                      <Card.Body>
+                                        <Card.Title className='titleCardImg'>
+                                          {articles.attributes.name}
+                                        </Card.Title>
+                                        <Card.Text className='descCardImg'>
+                                          {articles.attributes.description}
+                                        </Card.Text>
+                                        <Button className="viewButtonImg">View</Button>
+                                        <Button className="BtnAddCartImg" onClick={() => this.props.addToCart(articles.attributes)}>Ajouter au Panier</Button>
+                                      </Card.Body>
+                                    </> : (
+                                      <Card.Body>
+                                        <Card.Title className='titleCard'>
+                                          {articles.attributes.name}
+                                        </Card.Title>
+                                        <Card.Text className='descCard'>
+                                          {articles.attributes.description}
+                                        </Card.Text>
+                                        <Button className="viewButton">View</Button>
+                                        <Button className="BtnAddCart" onClick={() => this.props.addToCart(articles.attributes)}>Ajouter au Panier</Button>
+                                      </Card.Body>
+                                    )}
+                                </Card>
+                              </Col>
+                            ) : (
+                              this.state.sub_categoryUrl != null && this.state.categoryUrl === null && this.state.universUrl === null && articles.attributes.sub_category.data.attributes.name.toLowerCase() === this.state.sub_categoryUrl ? (
+                                < Col >
+                                  <Card className="carte">
+                                    {articles.attributes.image.data ?
+                                      <>
+                                        <img class="ImgCard" variant="top" height="100px" width="100px" src={"http://localhost:1337" + articles.attributes.image.data[0].attributes.url} />
+                                        <Card.Body>
+                                          <Card.Title className='titleCardImg'>
+                                            {articles.attributes.name}
+                                          </Card.Title>
+                                          <Card.Text className='descCardImg'>
+                                            {articles.attributes.description}
+                                          </Card.Text>
+                                          <Button className="viewButtonImg">View</Button>
+                                          <Button className="BtnAddCartImg" onClick={() => this.props.addToCart(articles.attributes)}>Ajouter au Panier</Button>
+                                        </Card.Body>
+                                      </> : (
+                                        <Card.Body>
+                                          <Card.Title className='titleCard'>
+                                            {articles.attributes.name}
+                                          </Card.Title>
+                                          <Card.Text className='descCard'>
+                                            {articles.attributes.description}
+                                          </Card.Text>
+                                          <Button className="viewButton">View</Button>
+                                          <Button className="BtnAddCart" onClick={() => this.props.addToCart(articles.attributes)}>Ajouter au Panier</Button>
+                                        </Card.Body>
+                                      )}
+                                  </Card>
+                                </Col>
+                              ) : (
+                                ""
+                              )
+                            )
+                          )
+
+                        )
+                      )
+                    )
                   ) : (
-                    ""
-                  )
-                )
-              )}
+                    this.state.search === null ? (
+                      this.props.articles && this.props.articles.map((article) =>
+                        article.attributes.category.data && article.attributes.category.data.attributes.name.toLowerCase() === window.location.pathname.substring(window.location.pathname.lastIndexOf("/") + 1) ? (
+                          <Col>
+                            <Card className="carte">
+                              {article.attributes.image.data ? (
+                                <img class="ImgCard" variant="top" height="100px" width="100px" src={"http://localhost:1337" + article.attributes.image.data[0].attributes.url} />,
+                                <Card.Body>
+                                  <Card.Title className='titleCardImg'>
+                                    {article.attributes.name}
+                                  </Card.Title>
+                                  <Card.Text className='descCardImg'>
+                                    {article.attributes.description}
+                                  </Card.Text>
+                                  <Button className="viewButtonImg">View</Button>
+                                  <Button className="BtnAddCartImg" onClick={() => this.props.addToCart(article.attributes)}>Ajouter au Panier</Button>
+                                </Card.Body>
+                              ) : (
+                                <Card.Body>
+                                  <Card.Title className='titleCard'>
+                                    {article.attributes.name}
+                                  </Card.Title>
+                                  <Card.Text className='descCard'>
+                                    {article.attributes.description}
+                                  </Card.Text>
+                                  <Button className="viewButton">View</Button>
+                                  <Button className="BtnAddCart" onClick={() => this.props.addToCart(article.attributes)}>Ajouter au Panier</Button>
+                                </Card.Body>
+                              )}
+                            </Card>
+                          </Col>
+                        ) : (
+                          article.attributes.univer.data &&
+                            article.attributes.univer.data.attributes.name.toLowerCase() === window.location.pathname.substring(window.location.pathname.lastIndexOf("/") + 1) &&
+                            this.state.categoryUrl === null && this.state.sub_categoryUrl === null && this.state.sub_categoryUrl === null ? (
+                            <Col>
+
+                              <Card className="carte">
+                                {article.attributes.image.data ?
+                                  <>
+                                    <img class="ImgCard" variant="top" height="100px" width="100px" src={"http://localhost:1337" + article.attributes.image.data[0].attributes.url} />
+                                    <Card.Body>
+                                      <Card.Title className='titleCardImg'>
+                                        {article.attributes.name}
+                                      </Card.Title>
+                                      <Card.Text className='descCardImg'>
+                                        {article.attributes.description}
+                                      </Card.Text>
+                                      <Button className="viewButtonImg">View</Button>
+                                      <Button className="BtnAddCartImg" onClick={() => this.props.addToCart(article.attributes)}>Ajouter au Panier</Button>
+                                    </Card.Body>
+                                  </> : (
+                                    <Card.Body>
+                                      <Card.Title className='titleCard'>
+                                        {article.attributes.name}
+                                      </Card.Title>
+                                      <Card.Text className='descCard'>
+                                        {article.attributes.description}
+                                      </Card.Text>
+                                      <Button className="viewButton">View</Button>
+                                      <Button className="BtnAddCart" onClick={() => this.props.addToCart(article.attributes)}>Ajouter au Panier</Button>
+                                    </Card.Body>
+                                  )}
+                              </Card>
+                            </Col>
+                          ) : (
+                            this.state.universUrl != null && this.state.sub_categoryUrl != null && article.attributes.univer.data.attributes.name.toLowerCase() === this.state.universUrl && article.attributes.sub_category.data.attributes.name.toLowerCase() === this.state.sub_categoryUrl ||
+                              this.state.categoryUrl != null && this.state.sub_categoryUrl != null && article.attributes.category.data.attributes.name.toLowerCase() === this.state.categoryUrl && article.attributes.sub_category.data.attributes.name.toLowerCase() === this.state.sub_categoryUrl ? (
+                              <Col>
+                                <Card className="carte">
+                                  {article.attributes.image.data ?
+                                    <>
+                                      <img class="ImgCard" variant="top" height="100px" width="100px" src={"http://localhost:1337" + article.attributes.image.data[0].attributes.url} />
+                                      <Card.Body>
+                                        <Card.Title className='titleCardImg'>
+                                          {article.attributes.name}
+                                        </Card.Title>
+                                        <Card.Text className='descCardImg'>
+                                          {article.attributes.description}
+                                        </Card.Text>
+                                        <Button className="viewButtonImg">View</Button>
+                                        <Button className="BtnAddCartImg" onClick={() => this.props.addToCart(article.attributes)}>Ajouter au Panier</Button>
+                                      </Card.Body>
+                                    </> : (
+                                      <Card.Body>
+                                        <Card.Title className='titleCard'>
+                                          {article.attributes.name}
+                                        </Card.Title>
+                                        <Card.Text className='descCard'>
+                                          {article.attributes.description}
+                                        </Card.Text>
+                                        <Button className="viewButton">View</Button>
+                                        <Button className="BtnAddCart" onClick={() => this.props.addToCart(article.attributes)}>Ajouter au Panier</Button>
+                                      </Card.Body>
+                                    )}
+                                </Card>
+                              </Col>
+                            ) : (
+                              this.state.isUnivers != null && this.state.categoryUrl != null && this.state.sub_categoryUrl === null && article.attributes.category.data.attributes.name.toLowerCase() === this.state.categoryUrl || this.state.isCategory != null && this.state.universUrl != null && this.state.sub_categoryUrl === null && article.attributes.univer.data.attributes.name.toLowerCase() === this.state.universUrl ? (
+                                <Col>
+                                  <Card className="carte">
+                                    {article.attributes.image.data ?
+                                      <>
+                                        <img class="ImgCard" variant="top" height="100px" width="100px" src={"http://localhost:1337" + article.attributes.image.data[0].attributes.url} />
+                                        <Card.Body>
+                                          <Card.Title className='titleCardImg'>
+                                            {article.attributes.name}
+                                          </Card.Title>
+                                          <Card.Text className='descCardImg'>
+                                            {article.attributes.description}
+                                          </Card.Text>
+                                          <Button className="viewButtonImg">View</Button>
+                                          <Button className="BtnAddCartImg" onClick={() => this.props.addToCart(article.attributes)}>Ajouter au Panier</Button>
+                                        </Card.Body>
+                                      </> : (
+                                        <Card.Body>
+                                          <Card.Title className='titleCard'>
+                                            {article.attributes.name}
+                                          </Card.Title>
+                                          <Card.Text className='descCard'>
+                                            {article.attributes.description}
+                                          </Card.Text>
+                                          <Button className="viewButton">View</Button>
+                                          <Button className="BtnAddCart" onClick={() => this.props.addToCart(article.attributes)}>Ajouter au Panier</Button>
+                                        </Card.Body>
+                                      )}
+                                  </Card>
+                                </Col>
+                              ) : (
+                                this.state.sub_categoryUrl != null && this.state.categoryUrl === null && this.state.universUrl === null && article.attributes.sub_category.data.attributes.name.toLowerCase() === this.state.sub_categoryUrl ? (
+                                  < Col >
+                                    <Card className="carte">
+                                      {article.attributes.image.data ?
+                                        <>
+                                          <img class="ImgCard" variant="top" height="100px" width="100px" src={"http://localhost:1337" + article.attributes.image.data[0].attributes.url} />
+                                          <Card.Body>
+                                            <Card.Title className='titleCardImg'>
+                                              {article.attributes.name}
+                                            </Card.Title>
+                                            <Card.Text className='descCardImg'>
+                                              {article.attributes.description}
+                                            </Card.Text>
+                                            <Button className="viewButtonImg">View</Button>
+                                            <Button className="BtnAddCartImg" onClick={() => this.props.addToCart(article.attributes)}>Ajouter au Panier</Button>
+                                          </Card.Body>
+                                        </> : (
+                                          <Card.Body>
+                                            <Card.Title className='titleCard'>
+                                              {article.attributes.name}
+                                            </Card.Title>
+                                            <Card.Text className='descCard'>
+                                              {article.attributes.description}
+                                            </Card.Text>
+                                            <Button className="viewButton">View</Button>
+                                            <Button className="BtnAddCart" onClick={() => this.props.addToCart(article.attributes)}>Ajouter au Panier</Button>
+                                          </Card.Body>
+                                        )}
+                                    </Card>
+                                  </Col>
+                                ) : (
+                                  ""
+                                )
+                              )
+                            )
+
+                          )
+                        )
+                      )
+                    ) : (<h2 className='text-center'>Aucun article n'a été trouvé</h2>)
+                  )}
+                </>
+
+
+              }
             </Row></Col>
           </Row>
-        </Container>
+        </Container >
       </>
     );
   }

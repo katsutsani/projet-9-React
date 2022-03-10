@@ -32,18 +32,28 @@
   color: #61dafb;
 }
 
-.titleCard{
+.titleCardImg{
   margin-top: -100px !important;
   margin-left: 120px;
 }
 
-.descCard{
+.descCardImg{
   margin-top:30px;
   margin-left: 120px;
 }
 
+.titleCard{
+  margin-top:25px !important;
+  margin-left: 50px;
+}
+
+.descCard{
+  margin-top:40px;
+  margin-left: 50px;
+}
+
 .ImgCard{
-  margin-top: 20px;
+  margin-top: 25px;
   margin-left: 20px;
 }
 
@@ -53,12 +63,16 @@
 
 .around_articles {
   background-color: blanchedalmond;
-  margin-top: -50%;
+  margin-top: 20px!important;
   padding-top: 2%;
   padding-bottom: 2%;
   padding-left: 2% !important;
   padding-right: 2% !important;
   border-radius: 10px;
+}
+
+.card-body{
+  padding: 0rem 0rem !important;
 }
 
 .panel {
@@ -74,11 +88,16 @@
   width: 15%;
   top: 20%;
   align-self: start;
+
+}
+
+.search-bar{
+  margin-left: 50px;
 }
 
 
 .contain_article {
-  margin-top: -192px;
+  margin-top: -328px;
 }
 
 .dropdown_search {
@@ -89,13 +108,24 @@
 
 .BtnAddCart{
   width: 100px;
-  margin-left: 85%;
-  margin-top: -10%;
+  margin-left: 582px;
+  margin-top: -15%;
 }
 
 .viewButton{
-  margin-left: 87%;
-  margin-top: -25%;
+  margin-left: 84%;
+  margin-top: -30%;
+}
+
+.BtnAddCartImg{
+  width: 100px;
+  margin-left: 582px;
+  margin-top: -15%;
+}
+
+.viewButtonImg{
+  margin-left: 84%;
+  margin-top: -27%;
 }
 
 @keyframes App-logo-spin {
