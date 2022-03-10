@@ -107,8 +107,8 @@ class FooterPage extends Component {
                                 ankama sur les réseaux
                             </Col>
                         </Row>
-                        <Row className='mt-3'>
-                            <Col>
+                        <Row className='mt-3' xs="auto">
+                            <Col className='p-2'>
                                 <a
                                     href="https://twitter.com/ankamaeditions"
                                     target="_blank">
@@ -119,25 +119,27 @@ class FooterPage extends Component {
                                     </IconContext.Provider>
                                 </a>
                             </Col>
-                            <Col>                                <a
-                                href="https://fr-fr.facebook.com/DOFUS"
-                                target="_blank">
-                                <IconContext.Provider value={{ color: "black", size: '30px' }}>
-                                    <div>
-                                        <BsFacebook />
-                                    </div>
-                                </IconContext.Provider>
-                            </a>
+                            <Col className='p-2'>
+                                <a
+                                    href="https://fr-fr.facebook.com/DOFUS"
+                                    target="_blank">
+                                    <IconContext.Provider value={{ color: "black", size: '30px' }}>
+                                        <div>
+                                            <BsFacebook />
+                                        </div>
+                                    </IconContext.Provider>
+                                </a>
                             </Col>
-                            <Col>                                <a
-                                href="https://www.youtube.com/user/AnkamaTV"
-                                target="_blank">
-                                <IconContext.Provider value={{ color: "black", size: '30px' }}>
-                                    <div>
-                                        <BsYoutube />
-                                    </div>
-                                </IconContext.Provider>
-                            </a>
+                            <Col className='p-2'>
+                                <a
+                                    href="https://www.youtube.com/user/AnkamaTV"
+                                    target="_blank">
+                                    <IconContext.Provider value={{ color: "black", size: '30px' }}>
+                                        <div>
+                                            <BsYoutube />
+                                        </div>
+                                    </IconContext.Provider>
+                                </a>
                             </Col>
                         </Row>
                     </Col>

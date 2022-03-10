@@ -49,6 +49,9 @@
       "relation": "manyToOne",
       "target": "api::univers.univers",
       "inversedBy": "articles"
+    },
+    "prix": {
+      "type": "float"
     }
   }
 }

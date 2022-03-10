@@ -3,6 +3,16 @@ import { Card, Button, Carousel, Col, Container, Row } from 'react-bootstrap'
 import NavSite from './Navbar';
 import FooterPage from './Footer';
 
+const ColoredLine = ({ color }) => (
+  <hr
+      style={{
+          color: color,
+          backgroundColor: color,
+          height: 3
+      }}
+  />
+);
+
 class Accueil extends Component {
 
   render() {
@@ -43,6 +53,7 @@ class Accueil extends Component {
           <Row>
             <Col>
               <h2 className="text-uppercase">nouveautés</h2>
+              <ColoredLine color="black" />
             </Col>
           </Row>
         </Container>

@@ -6,6 +6,16 @@ import { BsFacebook, BsYoutube } from "react-icons/bs";
 import { AiFillCreditCard, AiFillTwitterCircle, AiOutlineRollback, AiOutlineShopping } from "react-icons/ai";
 import { IconContext } from "react-icons";
 
+const ColoredLine = ({ color }) => (
+    <hr
+        style={{
+            color: color,
+            backgroundColor: color,
+            height: 3
+        }}
+    />
+);
+
 class Article extends Component {
 
     render() {
@@ -25,7 +35,7 @@ class Article extends Component {
                             />
                         </Col>
                         <Col>
-                            <Row>
+                            <Row className="p-3">
                                 <Col>
                                     Aussi adorable que doux, le Roufoux
                                     est un panda roux qui hooouuukilémignonchoupidoudoutouplinceluilààà
@@ -34,14 +44,12 @@ class Article extends Component {
                                     Bref. Vous l’aurez compris : le Roufoux va vous rendre complètement foux.
                                 </Col>
                             </Row>
-                            <Row>
-                                <Col>Prix : 17euros</Col>
-                                <Col>
+                            <Row className="p-3">
+                                <Col className="d-flex align-items-center">Prix : 17euros</Col>
+                                <Col className="d-flex justify-content-end" >
                                     <Dropdown as={ButtonGroup}>
-                                        <Button variant="success" className="text-uppercase" href="">acheter</Button>
-
-                                        <Dropdown.Toggle split variant="success" id="dropdown-split-basic" />
-
+                                        <Button variant="#ffffff" className="text-uppercase" href="">acheter</Button>
+                                        <Dropdown.Toggle split variant="#ffffff" id="dropdown-split-basic" />
                                         <Dropdown.Menu>
                                             <Dropdown.Item href="#/action-1">1</Dropdown.Item>
                                             <Dropdown.Item href="#/action-2">2</Dropdown.Item>
@@ -53,63 +61,84 @@ class Article extends Component {
                                     </Dropdown>
                                 </Col>
                             </Row>
-                            <Row>
-                                <Col>Vous aimez ce produit ? Partagez-le !</Col>
+                            <ColoredLine color="black" />
+                            <Row className="p-2">
+                                <Col className="d-flex align-items-center">Vous aimez ce produit ? Partagez-le !</Col>
                                 <Col>
                                     <Row>
-                                        <Col>
+                                        <Col className="d-flex justify-content-end align-items-center">
                                             <a
                                                 href="https://twitter.com/ankamaeditions"
-                                                target="_blank">
-                                                <IconContext.Provider value={{ color: "black", size: '40px' }}>
+                                                target="_blank"
+                                                className="p-1">
+                                                <IconContext.Provider value={{ color: "#78C4FF", size: '47px' }}>
                                                     <div>
                                                         <AiFillTwitterCircle />
                                                     </div>
                                                 </IconContext.Provider>
                                             </a>
-                                        </Col>
-                                        <Col>                                <a
-                                            href="https://fr-fr.facebook.com/DOFUS"
-                                            target="_blank">
-                                            <IconContext.Provider value={{ color: "black", size: '40px' }}>
-                                                <div>
-                                                    <BsFacebook />
-                                                </div>
-                                            </IconContext.Provider>
-                                        </a>
-                                        </Col>
-                                        <Col>                                <a
-                                            href="https://www.youtube.com/user/AnkamaTV"
-                                            target="_blank">
-                                            <IconContext.Provider value={{ color: "black", size: '40px' }}>
-                                                <div>
-                                                    <BsYoutube />
-                                                </div>
-                                            </IconContext.Provider>
-                                        </a>
+                                            <a
+                                                href="https://fr-fr.facebook.com/DOFUS"
+                                                target="_blank"
+                                                className="p-1">
+                                                <IconContext.Provider value={{ color: "#657CCD", size: '40px' }}>
+                                                    <div>
+                                                        <BsFacebook />
+                                                    </div>
+                                                </IconContext.Provider>
+                                            </a>
+                                            <a
+                                                href="https://www.youtube.com/user/AnkamaTV"
+                                                target="_blank"
+                                                className="p-1">
+                                                <IconContext.Provider value={{ color: "#C3171D", size: '45px' }}>
+                                                    <div>
+                                                        <BsYoutube />
+                                                    </div>
+                                                </IconContext.Provider>
+                                            </a>
                                         </Col>
                                     </Row>
                                 </Col>
                             </Row>
-                            <Row>
-                                <Row>
-                                    <IconContext.Provider value={{ color: "black", size: '40px' }}>
-                                        <Col className='d-flex justify-content-around'>
-                                            <AiOutlineShopping />
-                                        </Col>
-                                        <Col className='d-flex justify-content-around'>
-                                            <AiOutlineRollback />
-                                        </Col>
-                                        <Col className='d-flex justify-content-around'>
-                                            <AiFillCreditCard />
-                                        </Col>
-                                    </IconContext.Provider>
-                                </Row>
-                                <Row className='text-uppercase text-center'>
-                                    <Col>livraison en france et à l'international</Col>
-                                    <Col>retours gratuits</Col>
-                                    <Col>paiement sécurisé</Col>
-                                </Row>
+                            <ColoredLine color="black" />
+                            <Row className="p-3">
+                                <Col>
+                                    <Row>
+                                        <IconContext.Provider value={{ color: "black", size: '40px' }}>
+                                            <Col className='d-flex justify-content-center'>
+                                                <AiOutlineRollback />
+                                            </Col>
+                                        </IconContext.Provider>
+                                    </Row>
+                                    <Row>
+                                        <p class='text-center text-uppercase'>retours gratuits</p>
+                                    </Row>
+                                </Col>
+                                <Col>
+                                    <Row>
+                                        <IconContext.Provider value={{ color: "black", size: '40px' }}>
+                                            <Col className='d-flex justify-content-center'>
+                                                <AiOutlineShopping />
+                                            </Col>
+                                        </IconContext.Provider>
+                                    </Row>
+                                    <Row>
+                                        <p class='text-center text-uppercase'>livraison en france et à l'international</p>
+                                    </Row>
+                                </Col>
+                                <Col>
+                                    <Row>
+                                        <IconContext.Provider value={{ color: "black", size: '40px' }}>
+                                            <Col className='d-flex justify-content-center'>
+                                                <AiFillCreditCard />
+                                            </Col>
+                                        </IconContext.Provider>
+                                    </Row>
+                                    <Row>
+                                        <p class='text-center text-uppercase'>paiement sécurisé</p>
+                                    </Row>
+                                </Col>
                             </Row>
                         </Col>
                     </Row>
