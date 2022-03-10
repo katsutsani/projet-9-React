@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { Button, ButtonGroup, Col, Container, Dropdown, Row } from 'react-bootstrap'
 import NavSite from './Navbar';
 import FooterPage from './Footer';
-import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
+import { BsFacebook, BsYoutube } from "react-icons/bs";
+import { AiFillCreditCard, AiFillTwitterCircle, AiOutlineRollback, AiOutlineShopping } from "react-icons/ai";
+import { IconContext } from "react-icons";
 
 class Article extends Component {
 
@@ -12,7 +14,7 @@ class Article extends Component {
                 <NavSite />
                 <Container>
                     <Row>
-                        <Col>Peluche Roufoux</Col>
+                        <h2 className="text-uppercase">peluche roufoux</h2>
                     </Row>
                     <Row>
                         <Col>
@@ -50,6 +52,64 @@ class Article extends Component {
                                         </Dropdown.Menu>
                                     </Dropdown>
                                 </Col>
+                            </Row>
+                            <Row>
+                                <Col>Vous aimez ce produit ? Partagez-le !</Col>
+                                <Col>
+                                    <Row>
+                                        <Col>
+                                            <a
+                                                href="https://twitter.com/ankamaeditions"
+                                                target="_blank">
+                                                <IconContext.Provider value={{ color: "black", size: '40px' }}>
+                                                    <div>
+                                                        <AiFillTwitterCircle />
+                                                    </div>
+                                                </IconContext.Provider>
+                                            </a>
+                                        </Col>
+                                        <Col>                                <a
+                                            href="https://fr-fr.facebook.com/DOFUS"
+                                            target="_blank">
+                                            <IconContext.Provider value={{ color: "black", size: '40px' }}>
+                                                <div>
+                                                    <BsFacebook />
+                                                </div>
+                                            </IconContext.Provider>
+                                        </a>
+                                        </Col>
+                                        <Col>                                <a
+                                            href="https://www.youtube.com/user/AnkamaTV"
+                                            target="_blank">
+                                            <IconContext.Provider value={{ color: "black", size: '40px' }}>
+                                                <div>
+                                                    <BsYoutube />
+                                                </div>
+                                            </IconContext.Provider>
+                                        </a>
+                                        </Col>
+                                    </Row>
+                                </Col>
+                            </Row>
+                            <Row>
+                                <Row>
+                                    <IconContext.Provider value={{ color: "black", size: '40px' }}>
+                                        <Col className='d-flex justify-content-around'>
+                                            <AiOutlineShopping />
+                                        </Col>
+                                        <Col className='d-flex justify-content-around'>
+                                            <AiOutlineRollback />
+                                        </Col>
+                                        <Col className='d-flex justify-content-around'>
+                                            <AiFillCreditCard />
+                                        </Col>
+                                    </IconContext.Provider>
+                                </Row>
+                                <Row className='text-uppercase text-center'>
+                                    <Col>livraison en france et à l'international</Col>
+                                    <Col>retours gratuits</Col>
+                                    <Col>paiement sécurisé</Col>
+                                </Row>
                             </Row>
                         </Col>
                     </Row>
