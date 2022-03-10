@@ -4,10 +4,21 @@ import { BsFacebook, BsYoutube } from "react-icons/bs";
 import { AiFillTwitterCircle } from "react-icons/ai";
 import { IconContext } from "react-icons";
 
+const ColoredLine = ({ color }) => (
+    <hr
+        style={{
+            color: color,
+            backgroundColor: color,
+            height: 3
+        }}
+    />
+  );
+
 class FooterPage extends Component {
     render() {
         return (
             <Container className='mt-5'>
+                <ColoredLine color="black" />
                 <Row>
                     <Col className='d-flex align-items-start flex-column'>
                         <Row className='mb-auto p-2'>
@@ -147,6 +158,7 @@ class FooterPage extends Component {
                         </Row>
                     </Col>
                 </Row>
+                <ColoredLine color="black" />
                 <Row className='m-2 d-flex align-items-center'>
                     <Col className='d-flex justify-content-end'>
                         <a

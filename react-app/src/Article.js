@@ -24,7 +24,7 @@ class Article extends Component {
                 <NavSite />
                 <Container>
                     <Row>
-                        <h2 className="text-uppercase">peluche roufoux</h2>
+                        <h2 className="text-uppercase font-weight-bold">peluche roufoux</h2>
                     </Row>
                     <Row>
                         <Col>
