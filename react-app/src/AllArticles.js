@@ -3,7 +3,7 @@ import { Button, Card, Col, Container, Dropdown, Row } from 'react-bootstrap';
 import { Link, renderMatches } from 'react-router-dom';
 import NavSite from './Navbar';
 
-class Dofus extends Component {
+class AllArticles extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -134,7 +134,8 @@ class Dofus extends Component {
         </nav>
         <Container className="contain_article">
           <Row>
-            <Col className="around_articles" xs={{ offset: 5 }}><Row xs={1} md={1} className="g-4">
+            <Col className="around_articles" xs={{ offset: 5 }}>
+              <Row xs={1} md={1} className="g-4">
               {
                 <>
                   {this.state.search != "nothing" && showArticles != "" ? (
@@ -488,4 +489,4 @@ class Dofus extends Component {
   }
 }
 
-export default Dofus;
+export default AllArticles;

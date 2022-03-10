@@ -42,6 +42,16 @@
   margin-left: 120px;
 }
 
+.titleCardImgPanier{
+  margin-top: -85px !important;
+  margin-left: 150px;
+}
+
+.descCardImgPanier{
+  margin-top:30px;
+  margin-left: 150px;
+}
+
 .titleCard{
   margin-top:25px !important;
   margin-left: 50px;
@@ -120,6 +130,16 @@
 .viewButton{
   margin-left: 84%;
   margin-top: -30%;
+}
+
+.viewButtonPanier{
+  margin-left: 84%;
+  margin-top: -30%;
+}
+
+.viewButtonImgPanier{
+  margin-left: 90%;
+  margin-top: -10%;
 }
 
 .BtnAddCartImg{
