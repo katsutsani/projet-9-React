@@ -4,10 +4,21 @@ import { BsFacebook, BsYoutube } from "react-icons/bs";
 import { AiFillTwitterCircle } from "react-icons/ai";
 import { IconContext } from "react-icons";
 
+const ColoredLine = ({ color }) => (
+    <hr
+        style={{
+            color: color,
+            backgroundColor: color,
+            height: 3
+        }}
+    />
+  );
+
 class FooterPage extends Component {
     render() {
         return (
             <Container className='mt-5'>
+                <ColoredLine color="black" />
                 <Row>
                     <Col className='d-flex align-items-start flex-column'>
                         <Row className='mb-auto p-2'>
@@ -111,8 +122,9 @@ class FooterPage extends Component {
                             <Col className='p-2'>
                                 <a
                                     href="https://twitter.com/ankamaeditions"
-                                    target="_blank">
-                                    <IconContext.Provider value={{ color: "black", size: '30px' }}>
+                                    target="_blank"
+                                    className="p-1">
+                                    <IconContext.Provider value={{ color: "#78C4FF", size: '27px' }}>
                                         <div>
                                             <AiFillTwitterCircle />
                                         </div>
@@ -122,8 +134,9 @@ class FooterPage extends Component {
                             <Col className='p-2'>
                                 <a
                                     href="https://fr-fr.facebook.com/DOFUS"
-                                    target="_blank">
-                                    <IconContext.Provider value={{ color: "black", size: '30px' }}>
+                                    target="_blank"
+                                    className="p-1">
+                                    <IconContext.Provider value={{ color: "#657CCD", size: '24px' }}>
                                         <div>
                                             <BsFacebook />
                                         </div>
@@ -133,8 +146,9 @@ class FooterPage extends Component {
                             <Col className='p-2'>
                                 <a
                                     href="https://www.youtube.com/user/AnkamaTV"
-                                    target="_blank">
-                                    <IconContext.Provider value={{ color: "black", size: '30px' }}>
+                                    target="_blank"
+                                    className="p-1">
+                                    <IconContext.Provider value={{ color: "#C3171D", size: '25px' }}>
                                         <div>
                                             <BsYoutube />
                                         </div>
@@ -144,6 +158,7 @@ class FooterPage extends Component {
                         </Row>
                     </Col>
                 </Row>
+                <ColoredLine color="black" />
                 <Row className='m-2 d-flex align-items-center'>
                     <Col className='d-flex justify-content-end'>
                         <a
