@@ -50,11 +50,15 @@ class Dofus extends Component {
 
     }, () => console.log("worked"))
   }
+
+  LinkToArticle = (id) =>{
+    window.location = "http://localhost:3000/article/"+id
+  }
   render() {
     const showArticles = this.props.articles.filter((article, key) => article.attributes.name.toLowerCase().includes(this.state.search && this.state.search.toLowerCase()))
     return (
       <>
-        <NavSite />
+        <NavSite panier={this.props.panier} getInitialValue={this.getInitialValue}/>
         <nav class="panel">
           <h2 class="text-center">Affinage de recherche</h2>
           <input class="search-bar"type="text" name="search" value={this.state.search && this.state.search != "nothing" ? (this.state.search) : ("")} onChange={(e) => this.handleChange(e)}></input>
@@ -147,7 +151,7 @@ class Dofus extends Component {
                                 <Card.Text className='descCardImg'>
                                   {articles.attributes.description}
                                 </Card.Text>
-                                <Button className="viewButtonImg">View</Button>
+                                <Button className="viewButtonImg"onClick={() => this.LinkToArticle(articles.id)}>View</Button>
                                 <Button className="BtnAddCartImg" onClick={() => this.props.addToCart(articles.attributes)}>Ajouter au Panier</Button>
                               </Card.Body>
                             ) : (
@@ -158,7 +162,7 @@ class Dofus extends Component {
                                 <Card.Text className='descCard'>
                                   {articles.attributes.description}
                                 </Card.Text>
-                                <Button className="viewButton">View</Button>
+                                <Button className="viewButton"onClick={() => this.LinkToArticle(articles.id)}>View</Button>
                                 <Button className="BtnAddCart" onClick={() => this.props.addToCart(articles.attributes)}>Ajouter au Panier</Button>
                               </Card.Body>
                             )}
@@ -181,7 +185,7 @@ class Dofus extends Component {
                                     <Card.Text className='descCardImg'>
                                       {articles.attributes.description}
                                     </Card.Text>
-                                    <Button className="viewButtonImg">View</Button>
+                                    <Button className="viewButtonImg"onClick={() => this.LinkToArticle(articles.id)}>View</Button>
                                     <Button className="BtnAddCartImg" onClick={() => this.props.addToCart(articles.attributes)}>Ajouter au Panier</Button>
                                   </Card.Body>
                                 </> : (
@@ -192,7 +196,7 @@ class Dofus extends Component {
                                     <Card.Text className='descCard'>
                                       {articles.attributes.description}
                                     </Card.Text>
-                                    <Button className="viewButton">View</Button>
+                                    <Button className="viewButton"onClick={() => this.LinkToArticle(articles.id)}>View</Button>
                                     <Button className="BtnAddCart" onClick={() => this.props.addToCart(articles.attributes)}>Ajouter au Panier</Button>
                                   </Card.Body>
                                 )}
@@ -213,7 +217,7 @@ class Dofus extends Component {
                                       <Card.Text className='descCardImg'>
                                         {articles.attributes.description}
                                       </Card.Text>
-                                      <Button className="viewButtonImg">View</Button>
+                                      <Button className="viewButtonImg"onClick={() => this.LinkToArticle(articles.id)}>View</Button>
                                       <Button className="BtnAddCartImg" onClick={() => this.props.addToCart(articles.attributes)}>Ajouter au Panier</Button>
                                     </Card.Body>
                                   </> : (
@@ -224,7 +228,7 @@ class Dofus extends Component {
                                       <Card.Text className='descCard'>
                                         {articles.attributes.description}
                                       </Card.Text>
-                                      <Button className="viewButton">View</Button>
+                                      <Button className="viewButton"onClick={() => this.LinkToArticle(articles.id)}>View</Button>
                                       <Button className="BtnAddCart" onClick={() => this.props.addToCart(articles.attributes)}>Ajouter au Panier</Button>
                                     </Card.Body>
                                   )}
@@ -244,7 +248,7 @@ class Dofus extends Component {
                                         <Card.Text className='descCardImg'>
                                           {articles.attributes.description}
                                         </Card.Text>
-                                        <Button className="viewButtonImg">View</Button>
+                                        <Button className="viewButtonImg"onClick={() => this.LinkToArticle(articles.id)}>View</Button>
                                         <Button className="BtnAddCartImg" onClick={() => this.props.addToCart(articles.attributes)}>Ajouter au Panier</Button>
                                       </Card.Body>
                                     </> : (
@@ -255,7 +259,7 @@ class Dofus extends Component {
                                         <Card.Text className='descCard'>
                                           {articles.attributes.description}
                                         </Card.Text>
-                                        <Button className="viewButton">View</Button>
+                                        <Button className="viewButton"onClick={() => this.LinkToArticle(articles.id)}>View</Button>
                                         <Button className="BtnAddCart" onClick={() => this.props.addToCart(articles.attributes)}>Ajouter au Panier</Button>
                                       </Card.Body>
                                     )}
@@ -275,7 +279,7 @@ class Dofus extends Component {
                                           <Card.Text className='descCardImg'>
                                             {articles.attributes.description}
                                           </Card.Text>
-                                          <Button className="viewButtonImg">View</Button>
+                                          <Button className="viewButtonImg"onClick={() => this.LinkToArticle(articles.id)}>View</Button>
                                           <Button className="BtnAddCartImg" onClick={() => this.props.addToCart(articles.attributes)}>Ajouter au Panier</Button>
                                         </Card.Body>
                                       </> : (
@@ -286,7 +290,7 @@ class Dofus extends Component {
                                           <Card.Text className='descCard'>
                                             {articles.attributes.description}
                                           </Card.Text>
-                                          <Button className="viewButton">View</Button>
+                                          <Button className="viewButton"onClick={() => this.LinkToArticle(articles.id)}>View</Button>
                                           <Button className="BtnAddCart" onClick={() => this.props.addToCart(articles.attributes)}>Ajouter au Panier</Button>
                                         </Card.Body>
                                       )}
@@ -316,7 +320,7 @@ class Dofus extends Component {
                                   <Card.Text className='descCardImg'>
                                     {article.attributes.description}
                                   </Card.Text>
-                                  <Button className="viewButtonImg">View</Button>
+                                  <Button className="viewButtonImg"onClick={() => this.LinkToArticle(article.id)}>View</Button>
                                   <Button className="BtnAddCartImg" onClick={() => this.props.addToCart(article.attributes)}>Ajouter au Panier</Button>
                                 </Card.Body>
                               ) : (
@@ -327,7 +331,7 @@ class Dofus extends Component {
                                   <Card.Text className='descCard'>
                                     {article.attributes.description}
                                   </Card.Text>
-                                  <Button className="viewButton">View</Button>
+                                  <Button className="viewButton"onClick={() => this.LinkToArticle(article.id)}>View</Button>
                                   <Button className="BtnAddCart" onClick={() => this.props.addToCart(article.attributes)}>Ajouter au Panier</Button>
                                 </Card.Body>
                               )}
@@ -350,7 +354,7 @@ class Dofus extends Component {
                                       <Card.Text className='descCardImg'>
                                         {article.attributes.description}
                                       </Card.Text>
-                                      <Button className="viewButtonImg">View</Button>
+                                      <Button className="viewButtonImg"onClick={() => this.LinkToArticle(article.id)}>View</Button>
                                       <Button className="BtnAddCartImg" onClick={() => this.props.addToCart(article.attributes)}>Ajouter au Panier</Button>
                                     </Card.Body>
                                   </> : (
@@ -361,7 +365,7 @@ class Dofus extends Component {
                                       <Card.Text className='descCard'>
                                         {article.attributes.description}
                                       </Card.Text>
-                                      <Button className="viewButton">View</Button>
+                                      <Button className="viewButton"onClick={() => this.LinkToArticle(article.id)}>View</Button>
                                       <Button className="BtnAddCart" onClick={() => this.props.addToCart(article.attributes)}>Ajouter au Panier</Button>
                                     </Card.Body>
                                   )}
@@ -382,7 +386,7 @@ class Dofus extends Component {
                                         <Card.Text className='descCardImg'>
                                           {article.attributes.description}
                                         </Card.Text>
-                                        <Button className="viewButtonImg">View</Button>
+                                        <Button className="viewButtonImg"onClick={() => this.LinkToArticle(article.id)}>View</Button>
                                         <Button className="BtnAddCartImg" onClick={() => this.props.addToCart(article.attributes)}>Ajouter au Panier</Button>
                                       </Card.Body>
                                     </> : (
@@ -393,7 +397,7 @@ class Dofus extends Component {
                                         <Card.Text className='descCard'>
                                           {article.attributes.description}
                                         </Card.Text>
-                                        <Button className="viewButton">View</Button>
+                                        <Button className="viewButton" onClick={() => this.LinkToArticle(article.id)}>View</Button>
                                         <Button className="BtnAddCart" onClick={() => this.props.addToCart(article.attributes)}>Ajouter au Panier</Button>
                                       </Card.Body>
                                     )}
@@ -413,7 +417,7 @@ class Dofus extends Component {
                                           <Card.Text className='descCardImg'>
                                             {article.attributes.description}
                                           </Card.Text>
-                                          <Button className="viewButtonImg">View</Button>
+                                          <Button className="viewButtonImg"onClick={() => this.LinkToArticle(article.id)}>View</Button>
                                           <Button className="BtnAddCartImg" onClick={() => this.props.addToCart(article.attributes)}>Ajouter au Panier</Button>
                                         </Card.Body>
                                       </> : (
@@ -424,7 +428,7 @@ class Dofus extends Component {
                                           <Card.Text className='descCard'>
                                             {article.attributes.description}
                                           </Card.Text>
-                                          <Button className="viewButton">View</Button>
+                                          <Button className="viewButton"onClick={() => this.LinkToArticle(article.id)}>View</Button>
                                           <Button className="BtnAddCart" onClick={() => this.props.addToCart(article.attributes)}>Ajouter au Panier</Button>
                                         </Card.Body>
                                       )}
@@ -444,7 +448,7 @@ class Dofus extends Component {
                                             <Card.Text className='descCardImg'>
                                               {article.attributes.description}
                                             </Card.Text>
-                                            <Button className="viewButtonImg">View</Button>
+                                            <Button className="viewButtonImg"onClick={() => this.LinkToArticle(article.id)}>View</Button>
                                             <Button className="BtnAddCartImg" onClick={() => this.props.addToCart(article.attributes)}>Ajouter au Panier</Button>
                                           </Card.Body>
                                         </> : (
@@ -455,7 +459,7 @@ class Dofus extends Component {
                                             <Card.Text className='descCard'>
                                               {article.attributes.description}
                                             </Card.Text>
-                                            <Button className="viewButton">View</Button>
+                                            <Button className="viewButton"onClick={() => this.LinkToArticle(article.id)}>View</Button>
                                             <Button className="BtnAddCart" onClick={() => this.props.addToCart(article.attributes)}>Ajouter au Panier</Button>
                                           </Card.Body>
                                         )}

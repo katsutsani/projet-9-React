@@ -15,6 +15,7 @@ import Panier from './Panier';
 import Article from './Article';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { Component } from 'react';
+import NavSite from './Navbar';
 
 
 class App extends Component {
@@ -60,6 +61,7 @@ class App extends Component {
 
   render() {
     return (
+      <>
       <Router>
         <Routes>
           <Route exact path='/' element={<Accueil
@@ -127,6 +129,7 @@ class App extends Component {
             addToCart={this.addToCart} />} />
         </Routes>
       </Router>
+      </>
     )
   }
 }

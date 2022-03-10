@@ -71,6 +71,11 @@
   border-radius: 10px;
 }
 
+.nbArticle{
+  font-size: small;
+  margin-bottom: 0 !important;
+}
+
 .card-body{
   padding: 0rem 0rem !important;
 }
