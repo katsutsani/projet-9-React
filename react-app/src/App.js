@@ -25,6 +25,7 @@ class App extends Component {
       panier: [],
       categories: [],
       sub_categories: [],
+      article: [],
     }
   }
 
