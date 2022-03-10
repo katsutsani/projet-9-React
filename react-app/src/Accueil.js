@@ -15,10 +15,11 @@ const ColoredLine = ({ color }) => (
 
 class Accueil extends Component {
 
+
   render() {
     return (
       <>
-        <NavSite />
+        <NavSite panier={this.props.panier}/>
         <Carousel fade indicators={false} interval={2000}>
           <Carousel.Item>
             <img

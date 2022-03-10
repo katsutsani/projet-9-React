@@ -5,16 +5,13 @@ import {
   Routes
 } from 'react-router-dom';
 import Accueil from './Accueil';
-import Dofus from './Dofus';
-import Wakfu from './Wakfu';
-import Jeux_de_société from './Jeux_de_société';
-import Livres from './Livres';
-import Produits_dérivés from './Produits_dérivés';
-import Autres_Univers from './Autres_Univers';
+import AllArticles from './AllArticles';
 import Panier from './Panier';
 import Article from './Article';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { Component } from 'react';
+import NavSite from './Navbar';
+import { BsTelephoneInbound } from 'react-icons/bs';
 
 
 class App extends Component {
@@ -28,7 +25,6 @@ class App extends Component {
       article: [],
     }
   }
-
   async componentDidMount() {
     const response = await fetch('http://localhost:1337/api/articles?populate=*', { method: 'GET', headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' } })
     const articles = await response.json()
@@ -50,17 +46,19 @@ class App extends Component {
     this.setState({
       Univers: Univers.data
     })
+    localStorage.getItem('panier') && this.setState({panier:[...JSON.parse(localStorage.getItem('panier'))]})
   }
 
   addToCart = (article) =>{
     this.setState({
       panier:[...this.state.panier,article
       ]
-    },()=>console.log(this.state.panier))
+    },()=>localStorage.setItem('panier',JSON.stringify(this.state.panier)))
   }
 
   render() {
     return (
+      <>
       <Router>
         <Routes>
           <Route exact path='/' element={<Accueil
@@ -70,42 +68,42 @@ class App extends Component {
             Universs={this.state.Univers}
             panier={this.state.panier}
             addToCart={this.addToCart} />} />
-          <Route exact path='/dofus' element={<Dofus
+          <Route exact path='/dofus' element={<AllArticles
             articles={this.state.articles}
             categories={this.state.categories}
             sub_categories={this.state.sub_categories}
             Universs={this.state.Univers}
             panier={this.state.panier}
             addToCart={this.addToCart} />} />
-          <Route exact path='/wakfu' element={<Dofus
+          <Route exact path='/wakfu' element={<AllArticles
             articles={this.state.articles}
             categories={this.state.categories}
             sub_categories={this.state.sub_categories}
             Universs={this.state.Univers}
             panier={this.state.panier}
             addToCart={this.addToCart} />} />
-          <Route exact path='/jeux-de-societe' element={<Dofus
+          <Route exact path='/jeux-de-societe' element={<AllArticles
             articles={this.state.articles}
             categories={this.state.categories}
             sub_categories={this.state.sub_categories}
             Universs={this.state.Univers}
             panier={this.state.panier}
             addToCart={this.addToCart} />} />
-          <Route exact path='/livres' element={<Dofus
+          <Route exact path='/livres' element={<AllArticles
             articles={this.state.articles}
             categories={this.state.categories}
             sub_categories={this.state.sub_categories}
             Universs={this.state.Univers}
             panier={this.state.panier}
             addToCart={this.addToCart} />} />
-          <Route exact path='/produits-derives' element={<Dofus
+          <Route exact path='/produits-derives' element={<AllArticles
             articles={this.state.articles}
             categories={this.state.categories}
             sub_categories={this.state.sub_categories}
             Universs={this.state.Universs}
             panier={this.state.panier}
             addToCart={this.addToCart} />} />
-          <Route exact path='/autres-univers' element={<Dofus
+          <Route exact path='/autres-univers' element={<AllArticles
             articles={this.state.articles}
             categories={this.state.categories}
             sub_categories={this.state.sub_categories}
@@ -128,6 +126,7 @@ class App extends Component {
             addToCart={this.addToCart} />} />
         </Routes>
       </Router>
+      </>
     )
   }
 }
