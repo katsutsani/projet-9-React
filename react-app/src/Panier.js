@@ -28,24 +28,24 @@ class Panier extends Component {
           </Row>
           <ColoredLine color="black" />
           <Row>
-            <Col sm={3}>
+            <Col sm={2}>
               <Row>
-                <p class='text-center'>Produit</p>
+                <h5 class='text-center'>Produit</h5>
               </Row>
             </Col>
             <Col sm={6}>
               <Row>
-                <p class='text-center'>Description</p>
+                <h5 class='text-center'>Description</h5>
               </Row>
             </Col>
             <Col sm={2}>
               <Row>
-                <p class='text-center'>Prix unitaire</p>
+                <h5 class='text-center'>Prix unitaire</h5>
               </Row>
             </Col>
-            <Col sm={1}>
+            <Col sm={2}>
               <Row>
-                <p class='text-center'>Modification</p>
+                <h5 class='text-center'>Modification</h5>
               </Row>
             </Col>
           </Row>
@@ -53,38 +53,42 @@ class Panier extends Component {
           {this.props.panier && this.props.panier.map((article) =>
             <>
               <Row>
-                <Col sm={3}>
+                <Col sm={2}>
                   <Row>
                     {article.attributes.image.data[0].attributes.url ? (
                       <>
-                        <img class="ImgCard w-50" variant="top" src={"http://localhost:1337" + article.attributes.image.data[0].attributes.url} />
+                        <img
+                          class="ImgCard w-50"
+                          variant="top"
+                          src={"http://localhost:1337" + article.attributes.image.data[0].attributes.url} 
+                          className="d-flex justify-content-center"/>
                       </>
                     ) : ("")}
                   </Row>
                 </Col>
                 <Col sm={6}>
                   <Row>
-                    <p>{article.attributes.name}<br/><br/>{article.attributes.description}</p>
+                    <p>{article.attributes.name}<br /><br />{article.attributes.description}</p>
                   </Row>
                 </Col>
                 <Col sm={2}>
                   <Row>
-                  <p>{article.attributes.prix} €</p>
+                    <p  class="text-center">{article.attributes.prix} €</p>
                   </Row>
                 </Col>
-                <Col sm={1}>
-                  <Row>
-                    <Col className='d-flex align-items-center justify-content-center'>
+                <Col sm={2}>
+                  <Row className="d-flex align-item-center">
+                    <Col>
                       <IconContext.Provider value={{ color: "black", size: '25px' }}>
-                        <div>
-                          < FaTrash onClick={() => this.props.rmArticleToCart(article.attributes.name)}/>
+                        <div className="d-flex align-item-center justify-content-end">
+                          < FaTrash onClick={() => this.props.rmArticleToCart(article.attributes.name)} />
                         </div>
                       </IconContext.Provider>
                     </Col>
-                    <Col className='d-flex align-items-center justify-content-center'>
+                    <Col>
                       <IconContext.Provider value={{ color: "black", size: '25px' }}>
-                        <div>
-                          <Link to={"/article/"+article.id}><FiExternalLink /></Link>
+                        <div className="d-flex align-item-center justify-content-start">
+                          <Link to={"/article/" + article.id}><FiExternalLink /></Link>
                         </div>
                       </IconContext.Provider>
                     </Col>
@@ -95,7 +99,18 @@ class Panier extends Component {
             </>
           )}
         </Container>
-        <Button onClick={() => this.props.commande()}>Commander</Button>
+        <Container className="pt-4">
+          <Row>
+            <Col className="d-grid gap-2">
+              <Button
+                size="lg"
+                variant="outline-dark"
+                onClick={() => this.props.commande()}
+                >Commander
+              </Button>
+            </Col>
+          </Row>
+        </Container>
         <FooterPage />
       </>
     );

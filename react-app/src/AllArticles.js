@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Card, Col, Container, Dropdown, Row } from 'react-bootstrap';
-import { Link, renderMatches } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import NavSite from './Navbar';
 
 class AllArticles extends Component {
@@ -142,20 +142,38 @@ class AllArticles extends Component {
                             <Card className="carte">
                               {articles.attributes.image.data ? (
                                 <>
-                                  <img class="ImgCard" variant="top" height="100px" width="100px" src={"http://localhost:1337" + articles.attributes.image.data[0].attributes.url} />
-                                  <Card.Body>
-                                    <Card.Title className='titleCardImg'>
-                                      {articles.attributes.name}
-                                    </Card.Title>
-                                    <Card.Text className='descCardImg'>
-                                      {articles.attributes.description}
-                                    </Card.Text>
-                                    <Card.Text className="price">
-                                      {articles.attributes.prix} €
-                                    </Card.Text>
-                                    <Link to={"/article/" + articles.id}><Button className="viewButton">View</Button></Link>
-                                    <Button className="BtnAddCartImg" onClick={() => this.props.addToCart(articles)}>Ajouter au Panier</Button>
-                                  </Card.Body>
+                                  <Container>
+                                    <Row>
+                                      <Col sm={4}>
+                                        <img class="ImgCard" className="w-100" src={"http://localhost:1337" + articles.attributes.image.data[0].attributes.url} />
+                                      </Col>
+                                      <Col sm={6}>
+                                        <Row className='titleCardImg pb-1'>
+                                          {articles.attributes.name}
+                                        </Row>
+                                        <Row className='descCardImg pt-1'>
+                                          {articles.attributes.description}
+                                        </Row>
+                                      </Col>
+                                      <Col sm={2}>
+                                        <Row>
+                                          <Col className="price">
+                                            {articles.attributes.prix} €
+                                          </Col>
+                                        </Row>
+                                        <Row>
+                                          <Col>
+                                            <Link to={"/article/" + articles.id}><Button className="viewButton">View</Button></Link>
+                                          </Col>
+                                        </Row>
+                                        <Row>
+                                          <Col>
+                                            <Button className="BtnAddCart" onClick={() => this.props.addToCart(articles)}>Ajouter au Panier</Button>
+                                          </Col>
+                                        </Row>
+                                      </Col>
+                                    </Row>
+                                  </Container>
                                 </>
                               ) : (
                                 <Card.Body>
@@ -181,17 +199,38 @@ class AllArticles extends Component {
                               <Card className="carte">
                                 {articles.attributes.image.data ?
                                   <>
-                                    <img class="ImgCard" variant="top" height="100px" width="100px" src={"http://localhost:1337" + articles.attributes.image.data[0].attributes.url} />
-                                    <Card.Body>
-                                      <Card.Title className='titleCardImg'>
-                                        {articles.attributes.name}
-                                      </Card.Title>
-                                      <Card.Text className='descCardImg'>
-                                        {articles.attributes.description}
-                                      </Card.Text>
-                                      <Link to={"/article/" + articles.id}><Button className="viewButton">View</Button></Link>
-                                      <Button className="BtnAddCartImg" onClick={() => this.props.addToCart(articles)}>Ajouter au Panier</Button>
-                                    </Card.Body>
+                                    <Container>
+                                      <Row>
+                                        <Col sm={4}>
+                                          <img class="ImgCard" className="w-100" src={"http://localhost:1337" + articles.attributes.image.data[0].attributes.url} />
+                                        </Col>
+                                        <Col sm={6}>
+                                          <Row className='titleCardImg pb-1'>
+                                            {articles.attributes.name}
+                                          </Row>
+                                          <Row className='descCardImg pt-1'>
+                                            {articles.attributes.description}
+                                          </Row>
+                                        </Col>
+                                        <Col sm={2}>
+                                          <Row>
+                                            <Col className="price">
+                                              {articles.attributes.prix} €
+                                            </Col>
+                                          </Row>
+                                          <Row>
+                                            <Col>
+                                              <Link to={"/article/" + articles.id}><Button className="viewButton">View</Button></Link>
+                                            </Col>
+                                          </Row>
+                                          <Row>
+                                            <Col>
+                                              <Button className="BtnAddCart" onClick={() => this.props.addToCart(articles)}>Ajouter au Panier</Button>
+                                            </Col>
+                                          </Row>
+                                        </Col>
+                                      </Row>
+                                    </Container>
                                   </> : (
                                     <Card.Body>
                                       <Card.Title className='titleCard'>
@@ -215,20 +254,38 @@ class AllArticles extends Component {
                                 <Card className="carte">
                                   {articles.attributes.image.data ?
                                     <>
-                                      <img class="ImgCard" variant="top" height="100px" width="100px" src={"http://localhost:1337" + articles.attributes.image.data[0].attributes.url} />
-                                      <Card.Body>
-                                        <Card.Title className='titleCardImg'>
-                                          {articles.attributes.name}
-                                        </Card.Title>
-                                        <Card.Text className='descCardImg'>
-                                          {articles.attributes.description}
-                                        </Card.Text>
-                                        <Card.Text className="price">
-                                          {articles.attributes.prix} €
-                                        </Card.Text>
-                                        <Link to={"/article/" + articles.id}><Button className="viewButton">View</Button></Link>
-                                        <Button className="BtnAddCartImg" onClick={() => this.props.addToCart(articles)}>Ajouter au Panier</Button>
-                                      </Card.Body>
+                                      <Container>
+                                        <Row>
+                                          <Col sm={4}>
+                                            <img class="ImgCard" className="w-100" src={"http://localhost:1337" + articles.attributes.image.data[0].attributes.url} />
+                                          </Col>
+                                          <Col sm={6}>
+                                            <Row className='titleCardImg pb-1'>
+                                              {articles.attributes.name}
+                                            </Row>
+                                            <Row className='descCardImg pt-1'>
+                                              {articles.attributes.description}
+                                            </Row>
+                                          </Col>
+                                          <Col sm={2}>
+                                            <Row>
+                                              <Col className="price">
+                                                {articles.attributes.prix} €
+                                              </Col>
+                                            </Row>
+                                            <Row>
+                                              <Col>
+                                                <Link to={"/article/" + articles.id}><Button className="viewButton">View</Button></Link>
+                                              </Col>
+                                            </Row>
+                                            <Row>
+                                              <Col>
+                                                <Button className="BtnAddCart" onClick={() => this.props.addToCart(articles)}>Ajouter au Panier</Button>
+                                              </Col>
+                                            </Row>
+                                          </Col>
+                                        </Row>
+                                      </Container>
                                     </> : (
                                       <Card.Body>
                                         <Card.Title className='titleCard'>
@@ -252,20 +309,38 @@ class AllArticles extends Component {
                                   <Card className="carte">
                                     {articles.attributes.image.data ?
                                       <>
-                                        <img class="ImgCard" variant="top" height="100px" width="100px" src={"http://localhost:1337" + articles.attributes.image.data[0].attributes.url} />
-                                        <Card.Body>
-                                          <Card.Title className='titleCardImg'>
-                                            {articles.attributes.name}
-                                          </Card.Title>
-                                          <Card.Text className='descCardImg'>
-                                            {articles.attributes.description}
-                                          </Card.Text>
-                                          <Card.Text className="price">
-                                            {articles.attributes.prix} €
-                                          </Card.Text>
-                                          <Link to={"/article/" + articles.id}><Button className="viewButton">View</Button></Link>
-                                          <Button className="BtnAddCartImg" onClick={() => this.props.addToCart(articles)}>Ajouter au Panier</Button>
-                                        </Card.Body>
+                                        <Container>
+                                          <Row>
+                                            <Col sm={4}>
+                                              <img class="ImgCard" className="w-100" src={"http://localhost:1337" + articles.attributes.image.data[0].attributes.url} />
+                                            </Col>
+                                            <Col sm={6}>
+                                              <Row className='titleCardImg pb-1'>
+                                                {articles.attributes.name}
+                                              </Row>
+                                              <Row className='descCardImg pt-1'>
+                                                {articles.attributes.description}
+                                              </Row>
+                                            </Col>
+                                            <Col sm={2}>
+                                              <Row>
+                                                <Col className="price">
+                                                  {articles.attributes.prix} €
+                                                </Col>
+                                              </Row>
+                                              <Row>
+                                                <Col>
+                                                  <Link to={"/article/" + articles.id}><Button className="viewButton">View</Button></Link>
+                                                </Col>
+                                              </Row>
+                                              <Row>
+                                                <Col>
+                                                  <Button className="BtnAddCart" onClick={() => this.props.addToCart(articles)}>Ajouter au Panier</Button>
+                                                </Col>
+                                              </Row>
+                                            </Col>
+                                          </Row>
+                                        </Container>
                                       </> : (
                                         <Card.Body>
                                           <Card.Title className='titleCard'>
@@ -291,20 +366,38 @@ class AllArticles extends Component {
                                     <Card className="carte">
                                       {articles.attributes.image.data ?
                                         <>
-                                          <img class="ImgCard" variant="top" height="100px" width="100px" src={"http://localhost:1337" + articles.attributes.image.data[0].attributes.url} />
-                                          <Card.Body>
-                                            <Card.Title className='titleCardImg'>
-                                              {articles.attributes.name}
-                                            </Card.Title>
-                                            <Card.Text className='descCardImg'>
-                                              {articles.attributes.description}
-                                            </Card.Text>
-                                            <Card.Text className="price">
-                                              {articles.attributes.prix} €
-                                            </Card.Text>
-                                            <Link to={"/article/" + articles.id}><Button className="viewButton">View</Button></Link>
-                                            <Button className="BtnAddCartImg" onClick={() => this.props.addToCart(articles)}>Ajouter au Panier</Button>
-                                          </Card.Body>
+                                          <Container>
+                                            <Row>
+                                              <Col sm={4}>
+                                                <img class="ImgCard" className="w-100" src={"http://localhost:1337" + articles.attributes.image.data[0].attributes.url} />
+                                              </Col>
+                                              <Col sm={6}>
+                                                <Row className='titleCardImg pb-1'>
+                                                  {articles.attributes.name}
+                                                </Row>
+                                                <Row className='descCardImg pt-1'>
+                                                  {articles.attributes.description}
+                                                </Row>
+                                              </Col>
+                                              <Col sm={2}>
+                                                <Row>
+                                                  <Col className="price">
+                                                    {articles.attributes.prix} €
+                                                  </Col>
+                                                </Row>
+                                                <Row>
+                                                  <Col>
+                                                    <Link to={"/article/" + articles.id}><Button className="viewButton">View</Button></Link>
+                                                  </Col>
+                                                </Row>
+                                                <Row>
+                                                  <Col>
+                                                    <Button className="BtnAddCart" onClick={() => this.props.addToCart(articles)}>Ajouter au Panier</Button>
+                                                  </Col>
+                                                </Row>
+                                              </Col>
+                                            </Row>
+                                          </Container>
                                         </> : (
                                           <Card.Body>
                                             <Card.Title className='titleCard'>
@@ -329,20 +422,38 @@ class AllArticles extends Component {
                                       <Card className="carte">
                                         {articles.attributes.image.data ?
                                           <>
-                                            <img class="ImgCard" variant="top" height="100px" width="100px" src={"http://localhost:1337" + articles.attributes.image.data[0].attributes.url} />
-                                            <Card.Body>
-                                              <Card.Title className='titleCardImg'>
-                                                {articles.attributes.name}
-                                              </Card.Title>
-                                              <Card.Text className='descCardImg'>
-                                                {articles.attributes.description}
-                                              </Card.Text>
-                                              <Card.Text className="price">
-                                                {articles.attributes.prix} €
-                                              </Card.Text>
-                                              <Link to={"/article/" + articles.id}><Button className="viewButton">View</Button></Link>
-                                              <Button className="BtnAddCartImg" onClick={() => this.props.addToCart(articles)}>Ajouter au Panier</Button>
-                                            </Card.Body>
+                                            <Container>
+                                              <Row>
+                                                <Col sm={4}>
+                                                  <img class="ImgCard" className="w-100" src={"http://localhost:1337" + articles.attributes.image.data[0].attributes.url} />
+                                                </Col>
+                                                <Col sm={6}>
+                                                  <Row className='titleCardImg pb-1'>
+                                                    {articles.attributes.name}
+                                                  </Row>
+                                                  <Row className='descCardImg pt-1'>
+                                                    {articles.attributes.description}
+                                                  </Row>
+                                                </Col>
+                                                <Col sm={2}>
+                                                  <Row>
+                                                    <Col className="price">
+                                                      {articles.attributes.prix} €
+                                                    </Col>
+                                                  </Row>
+                                                  <Row>
+                                                    <Col>
+                                                      <Link to={"/article/" + articles.id}><Button className="viewButton">View</Button></Link>
+                                                    </Col>
+                                                  </Row>
+                                                  <Row>
+                                                    <Col>
+                                                      <Button className="BtnAddCart" onClick={() => this.props.addToCart(articles)}>Ajouter au Panier</Button>
+                                                    </Col>
+                                                  </Row>
+                                                </Col>
+                                              </Row>
+                                            </Container>
                                           </> : (
                                             <Card.Body>
                                               <Card.Title className='titleCard'>
@@ -366,20 +477,38 @@ class AllArticles extends Component {
                                         <Card className="carte">
                                           {articles.attributes.image.data ?
                                             <>
-                                              <img class="ImgCard" variant="top" height="100px" width="100px" src={"http://localhost:1337" + articles.attributes.image.data[0].attributes.url} />
-                                              <Card.Body>
-                                                <Card.Title className='titleCardImg'>
-                                                  {articles.attributes.name}
-                                                </Card.Title>
-                                                <Card.Text className='descCardImg'>
-                                                  {articles.attributes.description}
-                                                </Card.Text>
-                                                <Card.Text className="price">
-                                                  {articles.attributes.prix} €
-                                                </Card.Text>
-                                                <Link to={"/article/" + articles.id}><Button className="viewButton">View</Button></Link>
-                                                <Button className="BtnAddCartImg" onClick={() => this.props.addToCart(articles)}>Ajouter au Panier</Button>
-                                              </Card.Body>
+                                              <Container>
+                                                <Row>
+                                                  <Col sm={4}>
+                                                    <img class="ImgCard" className="w-100" src={"http://localhost:1337" + articles.attributes.image.data[0].attributes.url} />
+                                                  </Col>
+                                                  <Col sm={6}>
+                                                    <Row className='titleCardImg pb-1'>
+                                                      {articles.attributes.name}
+                                                    </Row>
+                                                    <Row className='descCardImg pt-1'>
+                                                      {articles.attributes.description}
+                                                    </Row>
+                                                  </Col>
+                                                  <Col sm={2}>
+                                                    <Row>
+                                                      <Col className="price">
+                                                        {articles.attributes.prix} €
+                                                      </Col>
+                                                    </Row>
+                                                    <Row>
+                                                      <Col>
+                                                        <Link to={"/article/" + articles.id}><Button className="viewButton">View</Button></Link>
+                                                      </Col>
+                                                    </Row>
+                                                    <Row>
+                                                      <Col>
+                                                        <Button className="BtnAddCart" onClick={() => this.props.addToCart(articles)}>Ajouter au Panier</Button>
+                                                      </Col>
+                                                    </Row>
+                                                  </Col>
+                                                </Row>
+                                              </Container>
                                             </> : (
                                               <Card.Body>
                                                 <Card.Title className='titleCard'>
@@ -403,20 +532,38 @@ class AllArticles extends Component {
                                           <Card className="carte">
                                             {articles.attributes.image.data ?
                                               <>
-                                                <img class="ImgCard" variant="top" height="100px" width="100px" src={"http://localhost:1337" + articles.attributes.image.data[0].attributes.url} />
-                                                <Card.Body>
-                                                  <Card.Title className='titleCardImg'>
-                                                    {articles.attributes.name}
-                                                  </Card.Title>
-                                                  <Card.Text className='descCardImg'>
-                                                    {articles.attributes.description}
-                                                  </Card.Text>
-                                                  <Card.Text className="price">
-                                                    {articles.attributes.prix} €
-                                                  </Card.Text>
-                                                  <Link to={"/article/" + articles.id}><Button className="viewButton">View</Button></Link>
-                                                  <Button className="BtnAddCartImg" onClick={() => this.props.addToCart(articles)}>Ajouter au Panier</Button>
-                                                </Card.Body>
+                                                <Container>
+                                                  <Row>
+                                                    <Col sm={4}>
+                                                      <img class="ImgCard" className="w-100" src={"http://localhost:1337" + articles.attributes.image.data[0].attributes.url} />
+                                                    </Col>
+                                                    <Col sm={6}>
+                                                      <Row className='titleCardImg pb-1'>
+                                                        {articles.attributes.name}
+                                                      </Row>
+                                                      <Row className='descCardImg pt-1'>
+                                                        {articles.attributes.description}
+                                                      </Row>
+                                                    </Col>
+                                                    <Col sm={2}>
+                                                      <Row>
+                                                        <Col className="price">
+                                                          {articles.attributes.prix} €
+                                                        </Col>
+                                                      </Row>
+                                                      <Row>
+                                                        <Col>
+                                                          <Link to={"/article/" + articles.id}><Button className="viewButton">View</Button></Link>
+                                                        </Col>
+                                                      </Row>
+                                                      <Row>
+                                                        <Col>
+                                                          <Button className="BtnAddCart" onClick={() => this.props.addToCart(articles)}>Ajouter au Panier</Button>
+                                                        </Col>
+                                                      </Row>
+                                                    </Col>
+                                                  </Row>
+                                                </Container>
                                               </> : (
                                                 <Card.Body>
                                                   <Card.Title className='titleCard'>
@@ -455,20 +602,38 @@ class AllArticles extends Component {
                               <Card className="carte">
                                 {article.attributes.image.data ? (
                                   <>
-                                    <img class="ImgCard" variant="top" height="100px" width="100px" src={"http://localhost:1337" + article.attributes.image.data[0].attributes.url} />
-                                    <Card.Body>
-                                      <Card.Title className='titleCardImg'>
-                                        {article.attributes.name}
-                                      </Card.Title>
-                                      <Card.Text className='descCardImg'>
-                                        {article.attributes.description}
-                                      </Card.Text>
-                                      <Card.Text className="price">
-                                        {article.attributes.prix} €
-                                      </Card.Text>
-                                      <Link to={"/article/" + article.id}><Button className="viewButton">View</Button></Link>
-                                      <Button className="BtnAddCartImg" onClick={() => this.props.addToCart(article)}>Ajouter au Panier</Button>
-                                    </Card.Body>
+                                    <Container>
+                                      <Row>
+                                        <Col sm={4}>
+                                          <img class="ImgCard" className="w-100" src={"http://localhost:1337" + article.attributes.image.data[0].attributes.url} />
+                                        </Col>
+                                        <Col sm={6}>
+                                          <Row className='titleCardImg pb-1'>
+                                            {article.attributes.name}
+                                          </Row>
+                                          <Row className='descCardImg pt-1'>
+                                            {article.attributes.description}
+                                          </Row>
+                                        </Col>
+                                        <Col sm={2}>
+                                          <Row>
+                                            <Col className="price">
+                                              {article.attributes.prix} €
+                                            </Col>
+                                          </Row>
+                                          <Row>
+                                            <Col>
+                                              <Link to={"/article/" + article.id}><Button className="viewButton">View</Button></Link>
+                                            </Col>
+                                          </Row>
+                                          <Row>
+                                            <Col>
+                                              <Button className="BtnAddCart" onClick={() => this.props.addToCart(article)}>Ajouter au Panier</Button>
+                                            </Col>
+                                          </Row>
+                                        </Col>
+                                      </Row>
+                                    </Container>
                                   </>
                                 ) : (
                                   <Card.Body>
@@ -494,20 +659,38 @@ class AllArticles extends Component {
                                 <Card className="carte">
                                   {article.attributes.image.data ?
                                     <>
-                                      <img class="ImgCard" variant="top" height="100px" width="100px" src={"http://localhost:1337" + article.attributes.image.data[0].attributes.url} />
-                                      <Card.Body>
-                                        <Card.Title className='titleCardImg'>
-                                          {article.attributes.name}
-                                        </Card.Title>
-                                        <Card.Text className='descCardImg'>
-                                          {article.attributes.description}
-                                        </Card.Text>
-                                        <Card.Text className="price">
-                                          {article.attributes.prix} €
-                                        </Card.Text>
-                                        <Link to={"/article/" + article.id}><Button className="viewButton">View</Button></Link>
-                                        <Button className="BtnAddCartImg" onClick={() => this.props.addToCart(article)}>Ajouter au Panier</Button>
-                                      </Card.Body>
+                                      <Container>
+                                        <Row>
+                                          <Col sm={4}>
+                                            <img class="ImgCard" className="w-100" src={"http://localhost:1337" + article.attributes.image.data[0].attributes.url} />
+                                          </Col>
+                                          <Col sm={6}>
+                                            <Row className='titleCardImg pb-1'>
+                                              {article.attributes.name}
+                                            </Row>
+                                            <Row className='descCardImg pt-1'>
+                                              {article.attributes.description}
+                                            </Row>
+                                          </Col>
+                                          <Col sm={2}>
+                                            <Row>
+                                              <Col className="price">
+                                                {article.attributes.prix} €
+                                              </Col>
+                                            </Row>
+                                            <Row>
+                                              <Col>
+                                                <Link to={"/article/" + article.id}><Button className="viewButton">View</Button></Link>
+                                              </Col>
+                                            </Row>
+                                            <Row>
+                                              <Col>
+                                                <Button className="BtnAddCart" onClick={() => this.props.addToCart(article)}>Ajouter au Panier</Button>
+                                              </Col>
+                                            </Row>
+                                          </Col>
+                                        </Row>
+                                      </Container>
                                     </> : (
                                       <Card.Body>
                                         <Card.Title className='titleCard'>
@@ -531,20 +714,38 @@ class AllArticles extends Component {
                                   <Card className="carte">
                                     {article.attributes.image.data ?
                                       <>
-                                        <img class="ImgCard" variant="top" height="100px" width="100px" src={"http://localhost:1337" + article.attributes.image.data[0].attributes.url} />
-                                        <Card.Body>
-                                          <Card.Title className='titleCardImg'>
-                                            {article.attributes.name}
-                                          </Card.Title>
-                                          <Card.Text className='descCardImg'>
-                                            {article.attributes.description}
-                                          </Card.Text>
-                                          <Card.Text className="price">
-                                            {article.attributes.prix} €
-                                          </Card.Text>
-                                          <Link to={"/article/" + article.id}><Button className="viewButton">View</Button></Link>
-                                          <Button className="BtnAddCartImg" onClick={() => this.props.addToCart(article)}>Ajouter au Panier</Button>
-                                        </Card.Body>
+                                        <Container>
+                                          <Row>
+                                            <Col sm={4}>
+                                              <img class="ImgCard" className="w-100" src={"http://localhost:1337" + article.attributes.image.data[0].attributes.url} />
+                                            </Col>
+                                            <Col sm={6}>
+                                              <Row className='titleCardImg pb-1'>
+                                                {article.attributes.name}
+                                              </Row>
+                                              <Row className='descCardImg pt-1'>
+                                                {article.attributes.description}
+                                              </Row>
+                                            </Col>
+                                            <Col sm={2}>
+                                              <Row>
+                                                <Col className="price">
+                                                  {article.attributes.prix} €
+                                                </Col>
+                                              </Row>
+                                              <Row>
+                                                <Col>
+                                                  <Link to={"/article/" + article.id}><Button className="viewButton">View</Button></Link>
+                                                </Col>
+                                              </Row>
+                                              <Row>
+                                                <Col>
+                                                  <Button className="BtnAddCart" onClick={() => this.props.addToCart(article)}>Ajouter au Panier</Button>
+                                                </Col>
+                                              </Row>
+                                            </Col>
+                                          </Row>
+                                        </Container>
                                       </> : (
                                         <Card.Body>
                                           <Card.Title className='titleCard'>
@@ -568,20 +769,38 @@ class AllArticles extends Component {
                                     <Card className="carte">
                                       {article.attributes.image.data ?
                                         <>
-                                          <img class="ImgCard" variant="top" height="100px" width="100px" src={"http://localhost:1337" + article.attributes.image.data[0].attributes.url} />
-                                          <Card.Body>
-                                            <Card.Title className='titleCardImg'>
-                                              {article.attributes.name}
-                                            </Card.Title>
-                                            <Card.Text className='descCardImg'>
-                                              {article.attributes.description}
-                                            </Card.Text>
-                                            <Card.Text className="price">
-                                              {article.attributes.prix} €
-                                            </Card.Text>
-                                            <Link to={"/article/" + article.id}><Button className="viewButton">View</Button></Link>
-                                            <Button className="BtnAddCartImg" onClick={() => this.props.addToCart(article)}>Ajouter au Panier</Button>
-                                          </Card.Body>
+                                          <Container>
+                                            <Row>
+                                              <Col sm={4}>
+                                                <img class="ImgCard" className="w-100" src={"http://localhost:1337" + article.attributes.image.data[0].attributes.url} />
+                                              </Col>
+                                              <Col sm={6}>
+                                                <Row className='titleCardImg pb-1'>
+                                                  {article.attributes.name}
+                                                </Row>
+                                                <Row className='descCardImg pt-1'>
+                                                  {article.attributes.description}
+                                                </Row>
+                                              </Col>
+                                              <Col sm={2}>
+                                                <Row>
+                                                  <Col className="price">
+                                                    {article.attributes.prix} €
+                                                  </Col>
+                                                </Row>
+                                                <Row>
+                                                  <Col>
+                                                    <Link to={"/article/" + article.id}><Button className="viewButton">View</Button></Link>
+                                                  </Col>
+                                                </Row>
+                                                <Row>
+                                                  <Col>
+                                                    <Button className="BtnAddCart" onClick={() => this.props.addToCart(article)}>Ajouter au Panier</Button>
+                                                  </Col>
+                                                </Row>
+                                              </Col>
+                                            </Row>
+                                          </Container>
                                         </> : (
                                           <Card.Body>
                                             <Card.Title className='titleCard'>
@@ -608,20 +827,38 @@ class AllArticles extends Component {
                                       <Card className="carte">
                                         {article.attributes.image.data ?
                                           <>
-                                            <img class="ImgCard" variant="top" height="100px" width="100px" src={"http://localhost:1337" + article.attributes.image.data[0].attributes.url} />
-                                            <Card.Body>
-                                              <Card.Title className='titleCardImg'>
-                                                {article.attributes.name}
-                                              </Card.Title>
-                                              <Card.Text className='descCardImg'>
-                                                {article.attributes.description}
-                                              </Card.Text>
-                                              <Card.Text className="price">
-                                                {article.attributes.prix} €
-                                              </Card.Text>
-                                              <Link to={"/article/" + article.id}><Button className="viewButton">View</Button></Link>
-                                              <Button className="BtnAddCartImg" onClick={() => this.props.addToCart(article)}>Ajouter au Panier</Button>
-                                            </Card.Body>
+                                            <Container>
+                                              <Row>
+                                                <Col sm={4}>
+                                                  <img class="ImgCard" className="w-100" src={"http://localhost:1337" + article.attributes.image.data[0].attributes.url} />
+                                                </Col>
+                                                <Col sm={6}>
+                                                  <Row className='titleCardImg pb-1'>
+                                                    {article.attributes.name}
+                                                  </Row>
+                                                  <Row className='descCardImg pt-1'>
+                                                    {article.attributes.description}
+                                                  </Row>
+                                                </Col>
+                                                <Col sm={2}>
+                                                  <Row>
+                                                    <Col className="price">
+                                                      {article.attributes.prix} €
+                                                    </Col>
+                                                  </Row>
+                                                  <Row>
+                                                    <Col>
+                                                      <Link to={"/article/" + article.id}><Button className="viewButton">View</Button></Link>
+                                                    </Col>
+                                                  </Row>
+                                                  <Row>
+                                                    <Col>
+                                                      <Button className="BtnAddCart" onClick={() => this.props.addToCart(article)}>Ajouter au Panier</Button>
+                                                    </Col>
+                                                  </Row>
+                                                </Col>
+                                              </Row>
+                                            </Container>
                                           </> : (
                                             <Card.Body>
                                               <Card.Title className='titleCard'>
@@ -646,20 +883,38 @@ class AllArticles extends Component {
                                         <Card className="carte">
                                           {article.attributes.image.data ?
                                             <>
-                                              <img class="ImgCard" variant="top" height="100px" width="100px" src={"http://localhost:1337" + article.attributes.image.data[0].attributes.url} />
-                                              <Card.Body>
-                                                <Card.Title className='titleCardImg'>
-                                                  {article.attributes.name}
-                                                </Card.Title>
-                                                <Card.Text className='descCardImg'>
-                                                  {article.attributes.description}
-                                                </Card.Text>
-                                                <Card.Text className="price">
-                                                  {article.attributes.prix} €
-                                                </Card.Text>
-                                                <Link to={"/article/" + article.id}><Button className="viewButton">View</Button></Link>
-                                                <Button className="BtnAddCartImg" onClick={() => this.props.addToCart(article)}>Ajouter au Panier</Button>
-                                              </Card.Body>
+                                              <Container>
+                                                <Row>
+                                                  <Col sm={4}>
+                                                    <img class="ImgCard" className="w-100" src={"http://localhost:1337" + article.attributes.image.data[0].attributes.url} />
+                                                  </Col>
+                                                  <Col sm={6}>
+                                                    <Row className='titleCardImg pb-1'>
+                                                      {article.attributes.name}
+                                                    </Row>
+                                                    <Row className='descCardImg pt-1'>
+                                                      {article.attributes.description}
+                                                    </Row>
+                                                  </Col>
+                                                  <Col sm={2}>
+                                                    <Row>
+                                                      <Col className="price">
+                                                        {article.attributes.prix} €
+                                                      </Col>
+                                                    </Row>
+                                                    <Row>
+                                                      <Col>
+                                                        <Link to={"/article/" + article.id}><Button className="viewButton">View</Button></Link>
+                                                      </Col>
+                                                    </Row>
+                                                    <Row>
+                                                      <Col>
+                                                        <Button className="BtnAddCart" onClick={() => this.props.addToCart(article)}>Ajouter au Panier</Button>
+                                                      </Col>
+                                                    </Row>
+                                                  </Col>
+                                                </Row>
+                                              </Container>
                                             </> : (
                                               <Card.Body>
                                                 <Card.Title className='titleCard'>
@@ -683,20 +938,38 @@ class AllArticles extends Component {
                                           <Card className="carte">
                                             {article.attributes.image.data ?
                                               <>
-                                                <img class="ImgCard" variant="top" height="100px" width="100px" src={"http://localhost:1337" + article.attributes.image.data[0].attributes.url} />
-                                                <Card.Body>
-                                                  <Card.Title className='titleCardImg'>
-                                                    {article.attributes.name}
-                                                  </Card.Title>
-                                                  <Card.Text className='descCardImg'>
-                                                    {article.attributes.description}
-                                                  </Card.Text>
-                                                  <Card.Text className="price">
-                                                    {article.attributes.prix} €
-                                                  </Card.Text>
-                                                  <Link to={"/article/" + article.id}><Button className="viewButton">View</Button></Link>
-                                                  <Button className="BtnAddCartImg" onClick={() => this.props.addToCart(article)}>Ajouter au Panier</Button>
-                                                </Card.Body>
+                                                <Container>
+                                                  <Row>
+                                                    <Col sm={4}>
+                                                      <img class="ImgCard" className="w-100" src={"http://localhost:1337" + article.attributes.image.data[0].attributes.url} />
+                                                    </Col>
+                                                    <Col sm={6}>
+                                                      <Row className='titleCardImg pb-1'>
+                                                        {article.attributes.name}
+                                                      </Row>
+                                                      <Row className='descCardImg pt-1'>
+                                                        {article.attributes.description}
+                                                      </Row>
+                                                    </Col>
+                                                    <Col sm={2}>
+                                                      <Row>
+                                                        <Col className="price">
+                                                          {article.attributes.prix} €
+                                                        </Col>
+                                                      </Row>
+                                                      <Row>
+                                                        <Col>
+                                                          <Link to={"/article/" + article.id}><Button className="viewButton">View</Button></Link>
+                                                        </Col>
+                                                      </Row>
+                                                      <Row>
+                                                        <Col>
+                                                          <Button className="BtnAddCart" onClick={() => this.props.addToCart(article)}>Ajouter au Panier</Button>
+                                                        </Col>
+                                                      </Row>
+                                                    </Col>
+                                                  </Row>
+                                                </Container>
                                               </> : (
                                                 <Card.Body>
                                                   <Card.Title className='titleCard'>
@@ -720,20 +993,38 @@ class AllArticles extends Component {
                                             <Card className="carte">
                                               {article.attributes.image.data ?
                                                 <>
-                                                  <img class="ImgCard" variant="top" height="100px" width="100px" src={"http://localhost:1337" + article.attributes.image.data[0].attributes.url} />
-                                                  <Card.Body>
-                                                    <Card.Title className='titleCardImg'>
-                                                      {article.attributes.name}
-                                                    </Card.Title>
-                                                    <Card.Text className='descCardImg'>
-                                                      {article.attributes.description}
-                                                    </Card.Text>
-                                                    <Card.Text className="price">
-                                                      {article.attributes.prix} €
-                                                    </Card.Text>
-                                                    <Link to={"/article/" + article.id}><Button className="viewButton">View</Button></Link>
-                                                    <Button className="BtnAddCartImg" onClick={() => this.props.addToCart(article)}>Ajouter au Panier</Button>
-                                                  </Card.Body>
+                                                  <Container>
+                                                    <Row>
+                                                      <Col sm={4}>
+                                                        <img class="ImgCard" className="w-100" src={"http://localhost:1337" + article.attributes.image.data[0].attributes.url} />
+                                                      </Col>
+                                                      <Col sm={6}>
+                                                        <Row className='titleCardImg pb-1'>
+                                                          {article.attributes.name}
+                                                        </Row>
+                                                        <Row className='descCardImg pt-1'>
+                                                          {article.attributes.description}
+                                                        </Row>
+                                                      </Col>
+                                                      <Col sm={2}>
+                                                        <Row>
+                                                          <Col className="price">
+                                                            {article.attributes.prix} €
+                                                          </Col>
+                                                        </Row>
+                                                        <Row>
+                                                          <Col>
+                                                            <Link to={"/article/" + article.id}><Button className="viewButton">View</Button></Link>
+                                                          </Col>
+                                                        </Row>
+                                                        <Row>
+                                                          <Col>
+                                                            <Button className="BtnAddCart" onClick={() => this.props.addToCart(article)}>Ajouter au Panier</Button>
+                                                          </Col>
+                                                        </Row>
+                                                      </Col>
+                                                    </Row>
+                                                  </Container>
                                                 </> : (
                                                   <Card.Body>
                                                     <Card.Title className='titleCard'>

@@ -96,7 +96,7 @@ class Accueil extends Component {
                                   <Card.Text>
                                     {article.attributes.description}
                                   </Card.Text>
-                                  <Link to={"/article/" + article.id}><Button className="text-uppercase">View</Button></Link>
+                                  <Link to={"/article/" + article.id}><Button variant="outline-dark" className="text-uppercase">View</Button></Link>
                                 </Card.Body>
                               </Card>
                             </Col>
@@ -127,7 +127,7 @@ class Accueil extends Component {
                                   <Card.Text>
                                     {article.attributes.description}
                                   </Card.Text>
-                                  <Link to={"/article/" + article.id}><Button className="text-uppercase">View</Button></Link>
+                                  <Link to={"/article/" + article.id}><Button variant="outline-dark" className="text-uppercase">View</Button></Link>
                                 </Card.Body>
                               </Card>
                             </Col>

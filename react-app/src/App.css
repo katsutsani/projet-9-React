@@ -32,45 +32,6 @@
   color: #61dafb;
 }
 
-.titleCardImg{
-  margin-top: -100px !important;
-  margin-left: 120px;
-}
-
-.descCardImg{
-  margin-top:30px;
-  margin-left: 120px;
-}
-
-.titleCardImgPanier{
-  margin-top: -85px !important;
-  margin-left: 150px;
-}
-
-.descCardImgPanier{
-  margin-top:30px;
-  margin-left: 150px;
-}
-
-.titleCard{
-  margin-top:25px !important;
-  margin-left: 50px;
-}
-
-.descCard{
-  margin-top:40px;
-  margin-left: 50px;
-}
-
-.ImgCard{
-  margin-top: 25px;
-  margin-left: 20px;
-}
-
-.logoNav {
-  margin-left: 1000px;
-}
-
 .around_articles {
   background-color: blanchedalmond;
   margin-top: 20px!important;
@@ -119,38 +80,6 @@
   background-color: blanchedalmond !important;
   border-color: blanchedalmond !important;
   box-shadow: none !important;
-}
-
-.BtnAddCart{
-  width: 100px;
-  margin-left: 582px;
-  margin-top: -15%;
-}
-
-.viewButton{
-  margin-left: 84%;
-  margin-top: -30%;
-}
-
-.viewButtonPanier{
-  margin-left: 84%;
-  margin-top: -30%;
-}
-
-.viewButtonImgPanier{
-  margin-left: 90%;
-  margin-top: -10%;
-}
-
-.BtnAddCartImg{
-  width: 100px;
-  margin-left: 582px;
-  margin-top: -15%;
-}
-
-.viewButtonImg{
-  margin-left: 84%;
-  margin-top: -27%;
 }
 
 @keyframes App-logo-spin {
