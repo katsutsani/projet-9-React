@@ -150,6 +150,9 @@ class AllArticles extends Component {
                                     <Card.Text className='descCardImg'>
                                       {articles.attributes.description}
                                     </Card.Text>
+                                    <Card.Text className="price">
+                                      {articles.attributes.prix} €
+                                    </Card.Text>
                                     <Link to={"/article/" + articles.id}><Button className="viewButton">View</Button></Link>
                                     <Button className="BtnAddCartImg" onClick={() => this.props.addToCart(articles)}>Ajouter au Panier</Button>
                                   </Card.Body>
@@ -161,6 +164,9 @@ class AllArticles extends Component {
                                   </Card.Title>
                                   <Card.Text className='descCard'>
                                     {articles.attributes.description}
+                                  </Card.Text>
+                                  <Card.Text className="price">
+                                    {articles.attributes.prix} €
                                   </Card.Text>
                                   <Link to={"/article/" + articles.id}><Button className="viewButton">View</Button></Link>
                                   <Button className="BtnAddCart" onClick={() => this.props.addToCart(articles)}>Ajouter au Panier</Button>
@@ -194,6 +200,9 @@ class AllArticles extends Component {
                                       <Card.Text className='descCard'>
                                         {articles.attributes.description}
                                       </Card.Text>
+                                      <Card.Text className="price">
+                                        {articles.attributes.prix} €
+                                      </Card.Text>
                                       <Link to={"/article/" + articles.id}><Button className="viewButton">View</Button></Link>
                                       <Button className="BtnAddCart" onClick={() => this.props.addToCart(articles)}>Ajouter au Panier</Button>
                                     </Card.Body>
@@ -214,6 +223,9 @@ class AllArticles extends Component {
                                         <Card.Text className='descCardImg'>
                                           {articles.attributes.description}
                                         </Card.Text>
+                                        <Card.Text className="price">
+                                          {articles.attributes.prix} €
+                                        </Card.Text>
                                         <Link to={"/article/" + articles.id}><Button className="viewButton">View</Button></Link>
                                         <Button className="BtnAddCartImg" onClick={() => this.props.addToCart(articles)}>Ajouter au Panier</Button>
                                       </Card.Body>
@@ -224,6 +236,9 @@ class AllArticles extends Component {
                                         </Card.Title>
                                         <Card.Text className='descCard'>
                                           {articles.attributes.description}
+                                        </Card.Text>
+                                        <Card.Text className="price">
+                                          {articles.attributes.prix} €
                                         </Card.Text>
                                         <Link to={"/article/" + articles.id}><Button className="viewButton">View</Button></Link>
                                         <Button className="BtnAddCart" onClick={() => this.props.addToCart(articles)}>Ajouter au Panier</Button>
@@ -245,6 +260,9 @@ class AllArticles extends Component {
                                           <Card.Text className='descCardImg'>
                                             {articles.attributes.description}
                                           </Card.Text>
+                                          <Card.Text className="price">
+                                            {articles.attributes.prix} €
+                                          </Card.Text>
                                           <Link to={"/article/" + articles.id}><Button className="viewButton">View</Button></Link>
                                           <Button className="BtnAddCartImg" onClick={() => this.props.addToCart(articles)}>Ajouter au Panier</Button>
                                         </Card.Body>
@@ -255,6 +273,9 @@ class AllArticles extends Component {
                                           </Card.Title>
                                           <Card.Text className='descCard'>
                                             {articles.attributes.description}
+                                          </Card.Text>
+                                          <Card.Text className="price">
+                                            {articles.attributes.prix} €
                                           </Card.Text>
                                           <Link to={"/article/" + articles.id}><Button className="viewButton">View</Button></Link>
                                           <Button className="BtnAddCart" onClick={() => this.props.addToCart(articles)}>Ajouter au Panier</Button>
@@ -278,6 +299,9 @@ class AllArticles extends Component {
                                             <Card.Text className='descCardImg'>
                                               {articles.attributes.description}
                                             </Card.Text>
+                                            <Card.Text className="price">
+                                              {articles.attributes.prix} €
+                                            </Card.Text>
                                             <Link to={"/article/" + articles.id}><Button className="viewButton">View</Button></Link>
                                             <Button className="BtnAddCartImg" onClick={() => this.props.addToCart(articles)}>Ajouter au Panier</Button>
                                           </Card.Body>
@@ -288,6 +312,9 @@ class AllArticles extends Component {
                                             </Card.Title>
                                             <Card.Text className='descCard'>
                                               {articles.attributes.description}
+                                            </Card.Text>
+                                            <Card.Text className="price">
+                                              {articles.attributes.prix} €
                                             </Card.Text>
                                             <Link to={"/article/" + articles.id}><Button className="viewButton">View</Button></Link>
                                             <Button className="BtnAddCart" onClick={() => this.props.addToCart(articles)}>Ajouter au Panier</Button>
@@ -310,6 +337,9 @@ class AllArticles extends Component {
                                               <Card.Text className='descCardImg'>
                                                 {articles.attributes.description}
                                               </Card.Text>
+                                              <Card.Text className="price">
+                                                {articles.attributes.prix} €
+                                              </Card.Text>
                                               <Link to={"/article/" + articles.id}><Button className="viewButton">View</Button></Link>
                                               <Button className="BtnAddCartImg" onClick={() => this.props.addToCart(articles)}>Ajouter au Panier</Button>
                                             </Card.Body>
@@ -320,6 +350,9 @@ class AllArticles extends Component {
                                               </Card.Title>
                                               <Card.Text className='descCard'>
                                                 {articles.attributes.description}
+                                              </Card.Text>
+                                              <Card.Text className="price">
+                                                {articles.attributes.prix} €
                                               </Card.Text>
                                               <Link to={"/article/" + articles.id}><Button className="viewButton">View</Button></Link>
                                               <Button className="BtnAddCart" onClick={() => this.props.addToCart(articles)}>Ajouter au Panier</Button>
@@ -341,6 +374,9 @@ class AllArticles extends Component {
                                                 <Card.Text className='descCardImg'>
                                                   {articles.attributes.description}
                                                 </Card.Text>
+                                                <Card.Text className="price">
+                                                  {articles.attributes.prix} €
+                                                </Card.Text>
                                                 <Link to={"/article/" + articles.id}><Button className="viewButton">View</Button></Link>
                                                 <Button className="BtnAddCartImg" onClick={() => this.props.addToCart(articles)}>Ajouter au Panier</Button>
                                               </Card.Body>
@@ -351,6 +387,9 @@ class AllArticles extends Component {
                                                 </Card.Title>
                                                 <Card.Text className='descCard'>
                                                   {articles.attributes.description}
+                                                </Card.Text>
+                                                <Card.Text className="price">
+                                                  {articles.attributes.prix} €
                                                 </Card.Text>
                                                 <Link to={"/article/" + articles.id}><Button className="viewButton">View</Button></Link>
                                                 <Button className="BtnAddCart" onClick={() => this.props.addToCart(articles)}>Ajouter au Panier</Button>
@@ -372,6 +411,9 @@ class AllArticles extends Component {
                                                   <Card.Text className='descCardImg'>
                                                     {articles.attributes.description}
                                                   </Card.Text>
+                                                  <Card.Text className="price">
+                                                    {articles.attributes.prix} €
+                                                  </Card.Text>
                                                   <Link to={"/article/" + articles.id}><Button className="viewButton">View</Button></Link>
                                                   <Button className="BtnAddCartImg" onClick={() => this.props.addToCart(articles)}>Ajouter au Panier</Button>
                                                 </Card.Body>
@@ -382,6 +424,9 @@ class AllArticles extends Component {
                                                   </Card.Title>
                                                   <Card.Text className='descCard'>
                                                     {articles.attributes.description}
+                                                  </Card.Text>
+                                                  <Card.Text className="price">
+                                                    {articles.attributes.prix} €
                                                   </Card.Text>
                                                   <Link to={"/article/" + articles.id}><Button className="viewButton">View</Button></Link>
                                                   <Button className="BtnAddCart" onClick={() => this.props.addToCart(articles)}>Ajouter au Panier</Button>
@@ -410,18 +455,21 @@ class AllArticles extends Component {
                               <Card className="carte">
                                 {article.attributes.image.data ? (
                                   <>
-                                  <img class="ImgCard" variant="top" height="100px" width="100px" src={"http://localhost:1337" + article.attributes.image.data[0].attributes.url} />
-                                  <Card.Body>
-                                    <Card.Title className='titleCardImg'>
-                                      {article.attributes.name}
-                                    </Card.Title>
-                                    <Card.Text className='descCardImg'>
-                                      {article.attributes.description}
-                                    </Card.Text>
-                                    <Link to={"/article/" + article.id}><Button className="viewButton">View</Button></Link>
-                                    <Button className="BtnAddCartImg" onClick={() => this.props.addToCart(article)}>Ajouter au Panier</Button>
-                                  </Card.Body>
-                                </>
+                                    <img class="ImgCard" variant="top" height="100px" width="100px" src={"http://localhost:1337" + article.attributes.image.data[0].attributes.url} />
+                                    <Card.Body>
+                                      <Card.Title className='titleCardImg'>
+                                        {article.attributes.name}
+                                      </Card.Title>
+                                      <Card.Text className='descCardImg'>
+                                        {article.attributes.description}
+                                      </Card.Text>
+                                      <Card.Text className="price">
+                                        {article.attributes.prix} €
+                                      </Card.Text>
+                                      <Link to={"/article/" + article.id}><Button className="viewButton">View</Button></Link>
+                                      <Button className="BtnAddCartImg" onClick={() => this.props.addToCart(article)}>Ajouter au Panier</Button>
+                                    </Card.Body>
+                                  </>
                                 ) : (
                                   <Card.Body>
                                     <Card.Title className='titleCard'>
@@ -429,6 +477,9 @@ class AllArticles extends Component {
                                     </Card.Title>
                                     <Card.Text className='descCard'>
                                       {article.attributes.description}
+                                    </Card.Text>
+                                    <Card.Text className="price">
+                                      {article.attributes.prix} €
                                     </Card.Text>
                                     <Link to={"/article/" + article.id}><Button className="viewButton">View</Button></Link>
                                     <Button className="BtnAddCart" onClick={() => this.props.addToCart(article)}>Ajouter au Panier</Button>
@@ -451,6 +502,9 @@ class AllArticles extends Component {
                                         <Card.Text className='descCardImg'>
                                           {article.attributes.description}
                                         </Card.Text>
+                                        <Card.Text className="price">
+                                          {article.attributes.prix} €
+                                        </Card.Text>
                                         <Link to={"/article/" + article.id}><Button className="viewButton">View</Button></Link>
                                         <Button className="BtnAddCartImg" onClick={() => this.props.addToCart(article)}>Ajouter au Panier</Button>
                                       </Card.Body>
@@ -461,6 +515,9 @@ class AllArticles extends Component {
                                         </Card.Title>
                                         <Card.Text className='descCard'>
                                           {article.attributes.description}
+                                        </Card.Text>
+                                        <Card.Text className="price">
+                                          {article.attributes.prix} €
                                         </Card.Text>
                                         <Link to={"/article/" + article.id}><Button className="viewButton">View</Button></Link>
                                         <Button className="BtnAddCart" onClick={() => this.props.addToCart(article)}>Ajouter au Panier</Button>
@@ -482,6 +539,9 @@ class AllArticles extends Component {
                                           <Card.Text className='descCardImg'>
                                             {article.attributes.description}
                                           </Card.Text>
+                                          <Card.Text className="price">
+                                            {article.attributes.prix} €
+                                          </Card.Text>
                                           <Link to={"/article/" + article.id}><Button className="viewButton">View</Button></Link>
                                           <Button className="BtnAddCartImg" onClick={() => this.props.addToCart(article)}>Ajouter au Panier</Button>
                                         </Card.Body>
@@ -492,6 +552,9 @@ class AllArticles extends Component {
                                           </Card.Title>
                                           <Card.Text className='descCard'>
                                             {article.attributes.description}
+                                          </Card.Text>
+                                          <Card.Text className="price">
+                                            {article.attributes.prix} €
                                           </Card.Text>
                                           <Link to={"/article/" + article.id}><Button className="viewButton">View</Button></Link>
                                           <Button className="BtnAddCart" onClick={() => this.props.addToCart(article)}>Ajouter au Panier</Button>
@@ -513,6 +576,9 @@ class AllArticles extends Component {
                                             <Card.Text className='descCardImg'>
                                               {article.attributes.description}
                                             </Card.Text>
+                                            <Card.Text className="price">
+                                              {article.attributes.prix} €
+                                            </Card.Text>
                                             <Link to={"/article/" + article.id}><Button className="viewButton">View</Button></Link>
                                             <Button className="BtnAddCartImg" onClick={() => this.props.addToCart(article)}>Ajouter au Panier</Button>
                                           </Card.Body>
@@ -523,6 +589,9 @@ class AllArticles extends Component {
                                             </Card.Title>
                                             <Card.Text className='descCard'>
                                               {article.attributes.description}
+                                            </Card.Text>
+                                            <Card.Text className="price">
+                                              {article.attributes.prix} €
                                             </Card.Text>
                                             <Link to={"/article/" + article.id}><Button className="viewButton">View</Button></Link>
                                             <Button className="BtnAddCart" onClick={() => this.props.addToCart(article)}>Ajouter au Panier</Button>
@@ -547,6 +616,9 @@ class AllArticles extends Component {
                                               <Card.Text className='descCardImg'>
                                                 {article.attributes.description}
                                               </Card.Text>
+                                              <Card.Text className="price">
+                                                {article.attributes.prix} €
+                                              </Card.Text>
                                               <Link to={"/article/" + article.id}><Button className="viewButton">View</Button></Link>
                                               <Button className="BtnAddCartImg" onClick={() => this.props.addToCart(article)}>Ajouter au Panier</Button>
                                             </Card.Body>
@@ -557,6 +629,9 @@ class AllArticles extends Component {
                                               </Card.Title>
                                               <Card.Text className='descCard'>
                                                 {article.attributes.description}
+                                              </Card.Text>
+                                              <Card.Text className="price">
+                                                {article.attributes.prix} €
                                               </Card.Text>
                                               <Link to={"/article/" + article.id}><Button className="viewButton">View</Button></Link>
                                               <Button className="BtnAddCart" onClick={() => this.props.addToCart(article)}>Ajouter au Panier</Button>
@@ -579,6 +654,9 @@ class AllArticles extends Component {
                                                 <Card.Text className='descCardImg'>
                                                   {article.attributes.description}
                                                 </Card.Text>
+                                                <Card.Text className="price">
+                                                  {article.attributes.prix} €
+                                                </Card.Text>
                                                 <Link to={"/article/" + article.id}><Button className="viewButton">View</Button></Link>
                                                 <Button className="BtnAddCartImg" onClick={() => this.props.addToCart(article)}>Ajouter au Panier</Button>
                                               </Card.Body>
@@ -589,6 +667,9 @@ class AllArticles extends Component {
                                                 </Card.Title>
                                                 <Card.Text className='descCard'>
                                                   {article.attributes.description}
+                                                </Card.Text>
+                                                <Card.Text className="price">
+                                                  {article.attributes.prix} €
                                                 </Card.Text>
                                                 <Link to={"/article/" + article.id}><Button className="viewButton">View</Button></Link>
                                                 <Button className="BtnAddCart" onClick={() => this.props.addToCart(article)}>Ajouter au Panier</Button>
@@ -610,6 +691,9 @@ class AllArticles extends Component {
                                                   <Card.Text className='descCardImg'>
                                                     {article.attributes.description}
                                                   </Card.Text>
+                                                  <Card.Text className="price">
+                                                    {article.attributes.prix} €
+                                                  </Card.Text>
                                                   <Link to={"/article/" + article.id}><Button className="viewButton">View</Button></Link>
                                                   <Button className="BtnAddCartImg" onClick={() => this.props.addToCart(article)}>Ajouter au Panier</Button>
                                                 </Card.Body>
@@ -620,6 +704,9 @@ class AllArticles extends Component {
                                                   </Card.Title>
                                                   <Card.Text className='descCard'>
                                                     {article.attributes.description}
+                                                  </Card.Text>
+                                                  <Card.Text className="price">
+                                                    {article.attributes.prix} €
                                                   </Card.Text>
                                                   <Link to={"/article/" + article.id}><Button className="viewButton">View</Button></Link>
                                                   <Button className="BtnAddCart" onClick={() => this.props.addToCart(article)}>Ajouter au Panier</Button>
@@ -641,6 +728,9 @@ class AllArticles extends Component {
                                                     <Card.Text className='descCardImg'>
                                                       {article.attributes.description}
                                                     </Card.Text>
+                                                    <Card.Text className="price">
+                                                      {article.attributes.prix} €
+                                                    </Card.Text>
                                                     <Link to={"/article/" + article.id}><Button className="viewButton">View</Button></Link>
                                                     <Button className="BtnAddCartImg" onClick={() => this.props.addToCart(article)}>Ajouter au Panier</Button>
                                                   </Card.Body>
@@ -651,6 +741,9 @@ class AllArticles extends Component {
                                                     </Card.Title>
                                                     <Card.Text className='descCard'>
                                                       {article.attributes.description}
+                                                    </Card.Text>
+                                                    <Card.Text className="price">
+                                                      {article.attributes.prix} €
                                                     </Card.Text>
                                                     <Link to={"/article/" + article.id}><Button className="viewButton">View</Button></Link>
                                                     <Button className="BtnAddCart" onClick={() => this.props.addToCart(article)}>Ajouter au Panier</Button>
@@ -673,8 +766,6 @@ class AllArticles extends Component {
                       ) : (<h2 className='text-center'>Aucun article n'a été trouvé</h2>)
                     )}
                   </>
-
-
                 }
               </Row></Col>
           </Row>

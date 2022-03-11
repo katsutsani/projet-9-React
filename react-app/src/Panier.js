@@ -69,7 +69,7 @@ class Panier extends Component {
                 </Col>
                 <Col sm={2}>
                   <Row>
-                  <p>{article.attributes.prix}</p>
+                  <p>{article.attributes.prix} €</p>
                   </Row>
                 </Col>
                 <Col sm={1}>
@@ -77,7 +77,7 @@ class Panier extends Component {
                     <Col className='d-flex align-items-center justify-content-center'>
                       <IconContext.Provider value={{ color: "black", size: '25px' }}>
                         <div>
-                          < FaTrash />
+                          < FaTrash onClick={() => this.props.rmArticleToCart(article.attributes.name)}/>
                         </div>
                       </IconContext.Provider>
                     </Col>

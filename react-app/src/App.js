@@ -49,15 +49,14 @@ class App extends Component {
     localStorage.getItem('panier') && this.setState({ panier: [...JSON.parse(localStorage.getItem('panier'))] })
   }
 
-  removeArticleToCart = () =>{
-    
+  removeArticleToCart = (name) => {
   }
 
   Commande = async () => {
     const panier = JSON.stringify(this.state.panier)
     await fetch('http://localhost:1337/api/orders', {
       method: 'POST',
-      
+
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
@@ -142,7 +141,9 @@ class App extends Component {
               Universs={this.state.Univers}
               panier={this.state.panier}
               addToCart={this.addToCart}
-              commande={this.Commande} />} />
+              commande={this.Commande}
+              rmArticleToCart={this.removeArticleToCart}
+            />} />
             <Route exact path='/article/:id' element={<Article
               articles={this.state.articles}
               categories={this.state.categories}
