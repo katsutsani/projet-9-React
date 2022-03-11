@@ -46,7 +46,7 @@ class AllArticles extends Component {
       sub_categoryUrl: null,
       isUnivers: null,
       isCategory: null,
-      search: null,
+      search: null
 
     }, () => console.log("worked"))
   }
@@ -604,7 +604,6 @@ class AllArticles extends Component {
                                     article.attributes.univer.data.attributes.name.toLowerCase() === window.location.pathname.substring(window.location.pathname.lastIndexOf("/") + 1) &&
                                     this.state.categoryUrl === null && this.state.sub_categoryUrl === null ? (
                                     <Col>
-
                                       <Card className="carte">
                                         {article.attributes.image.data ?
                                           <>

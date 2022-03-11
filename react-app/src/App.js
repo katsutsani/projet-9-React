@@ -30,7 +30,7 @@ class App extends Component {
     const articles = await response.json()
     this.setState({
       articles: articles.data
-    })
+    },()=>console.log(this.state.articles))
     const repCat = await fetch('http://localhost:1337/api/categories', { method: 'GET', headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' } })
     const categories = await repCat.json()
     this.setState({
