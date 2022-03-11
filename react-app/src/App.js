@@ -51,11 +51,12 @@ class App extends Component {
 
   Commande = async () => {
     const panier = JSON.stringify(this.state.panier)
-    await fetch('http://localhost:1337/api/orders?populate=*', {
+    await fetch('http://localhost:1337/api/orders', {
       method: 'POST',
+      
       headers: {
         'Accept': 'application/json',
-        'Content-Type': 'charset=UTF-8'
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify({
         data: {
