@@ -84,7 +84,7 @@ class Accueil extends Component {
                 <Col>
                   <Container className='p-0'>
                     <Row>
-
+                      {console.log(this.state.articles)}
                       {this.state.articles.map((article) =>
                         article.attributes && img < 4 ? (
                           <>
