@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Button, Card, Col, Container, Row } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 import NavSite from './Navbar';
 import FooterPage from './Footer';
 import { FaTrash } from "react-icons/fa";
@@ -45,7 +44,7 @@ class Panier extends Component {
             </Col>
             <Col sm={1}>
               <Row>
-                <p class='text-center'>Modif</p>
+                <p class='text-center'>Modification</p>
               </Row>
             </Col>
           </Row>
@@ -95,43 +94,37 @@ class Panier extends Component {
               <Row xs={1} md={1} className="g-4">
                 {
                   this.props.panier && this.props.panier.map((article) =>
-                    <>
-                      {console.log(article)}
-                      <Col>
-                        <Card className="carte">
-                          {article.attributes.image.data[0].attributes.url ? (
-                            <>
-                              <img class="ImgCard" variant="top" height="100px" width="100px" src={"http://localhost:1337" + article.attributes.image.data[0].attributes.url} />
-                              <Card.Body>
-                                <Card.Title className='titleCardImgPanier'>
-                                  {article.attributes.name}
-                                </Card.Title>
-                                <Card.Text className='descCardImgPanier'>
-                                  {article.attributes.description}
-                                </Card.Text>
-                                <Link to={"/article/" + article.id}><Button className="viewButtonImgPanier">View</Button></Link>
+                    <Col>
+                      <Card className="carte">
+                        {article.image.data[0].attributes.url ? (
+                          <>
+                            <img class="ImgCard" variant="top" height="100px" width="100px" src={"http://localhost:1337" + article.image.data[0].attributes.url} />
+                            <Card.Body>
+                              <Card.Title className='titleCardImgPanier'>
+                                {article.name}
+                              </Card.Title>
+                              <Card.Text className='descCardImgPanier'>
+                                {article.description}
+                              </Card.Text>
+                              <Button className="viewButtonImgPanier" onClick={() => this.LinkToArticle(article.id)}>View</Button>
+                            </Card.Body>
+                          </>
+                        ) : (
+                          <>
+                            <Card.Body>
+                              <Card.Title className='titleCardPanier'>
+                                {article.name}
+                              </Card.Title>
+                              <Card.Text className='descCardPanier'>
+                                {article.description}
+                              </Card.Text>
+                              <Button className="viewButtonPanier" onClick={() => this.LinkToArticle(article.id)}>View</Button>
+                            </Card.Body>
+                          </>
+                        )}
 
-                              </Card.Body>
-                            </>
-                          ) : (
-                            <>
-                              <Card.Body>
-                                <Card.Title className='titleCardPanier'>
-                                  {article.attributes.name}
-                                </Card.Title>
-                                <Card.Text className='descCardPanier'>
-                                  {article.attributes.description}
-                                </Card.Text>
-                                <Link to={"/article/" + article.id}><Button className="viewButtonPanier">View</Button></Link>
-
-                              </Card.Body>
-                            </>
-                          )}
-
-                        </Card>
-                      </Col>
-                    </>
-
+                      </Card>
+                    </Col>
                   )
                 }
               </Row>
