@@ -40,7 +40,7 @@ class FooterPage extends Component {
                             <a
                                 href="https://support.ankama.com/hc/fr/requests/new"
                                 target="_blank"
-                                className='text-decoration-none'>
+                                className='text-decoration-none text-dark'>
                                 Contacter notre service client
                             </a>
                         </Row>
@@ -55,21 +55,21 @@ class FooterPage extends Component {
                             <Row>
                                 <a href="https://www.ankama-shop.com/fr/content/1-livraison"
                                     target="_blank"
-                                    className='text-decoration-none mt-1'>
+                                    className='text-decoration-none mt-1 text-dark'>
                                     Livraison
                                 </a>
                             </Row>
                             <Row>
                                 <a href="https://www.ankama-shop.com/fr/content/9-service-clients-contact"
                                     target="_blank"
-                                    className='text-decoration-none mt-1'>
+                                    className='text-decoration-none mt-1 text-dark'>
                                     SAV / Contact
                                 </a>
                             </Row>
                             <Row>
                                 <a href="https://www.ankama-shop.com/fr/content/5-paiement-securise"
                                     target="_blank"
-                                    className='text-decoration-none mt-1'>
+                                    className='text-decoration-none mt-1 text-dark'>
                                     Paiements / sécurité
                                 </a>
                             </Row>
@@ -85,28 +85,28 @@ class FooterPage extends Component {
                             <Row>
                                 <a href="https://www.ankama-shop.com/fr/content/10-faq"
                                     target="_blank"
-                                    className='text-decoration-none text-uppercase'>
+                                    className='text-decoration-none text-uppercase text-dark'>
                                     faq
                                 </a>
                             </Row>
                             <Row className='text-uppercase'>
                                 <a href="https://www.ankama-shop.com/fr/content/8-CGV"
                                     target="_blank"
-                                    className='text-decoration-none text-uppercase mt-1'>
+                                    className='text-decoration-none text-uppercase mt-1 text-dark'>
                                     cgv
                                 </a>
                             </Row>
                             <Row>
                                 <a href="https://www.ankama-shop.com/fr/content/2-mentions-legales"
                                     target="_blank"
-                                    className='text-decoration-none mt-1'>
+                                    className='text-decoration-none mt-1 text-dark'>
                                     Mentions légales
                                 </a>
                             </Row>
                             <Row>
                                 <a href="https://www.ankama-shop.com/fr/content/13-politique-de-confidentialite"
                                     target="_blank"
-                                    className='text-decoration-none mt-1'>
+                                    className='text-decoration-none mt-1 text-dark'>
                                     Politique de confidentialité
                                 </a>
                             </Row>

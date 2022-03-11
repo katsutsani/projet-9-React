@@ -5,6 +5,7 @@ import FooterPage from './Footer';
 import { FaTrash } from "react-icons/fa";
 import { FiExternalLink } from "react-icons/fi";
 import { IconContext } from "react-icons";
+import { Link } from 'react-router-dom';
 
 const ColoredLine = ({ color }) => (
   <hr

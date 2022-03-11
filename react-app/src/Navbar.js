@@ -22,14 +22,14 @@ class NavSite extends Component {
                         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                         <Navbar.Collapse id="responsive-navbar-nav">
                             <Nav className="me-auto">
-                                <Nav.Link><Link to="/dofus" class='center text-decoration-none' onClick={this.props.getInitialValue ? (() => this.props.getInitialValue()) : ("")}>Dofus</Link></Nav.Link>
-                                <Nav.Link><Link to="/wakfu" class='center text-decoration-none' onClick={this.props.getInitialValue ? (() => this.props.getInitialValue()) : ("")}>Wakfu</Link></Nav.Link>
-                                <Nav.Link><Link to="/autres-univers" class='center text-decoration-none' onClick={this.props.getInitialValue ? (() => this.props.getInitialValue()) : ("")}>Autres_Univers</Link></Nav.Link>
+                                <Nav.Link><Link to="/dofus" class='center text-decoration-none text-light h5' onClick={this.props.getInitialValue ? (() => this.props.getInitialValue()) : ("")}>Dofus</Link></Nav.Link>
+                                <Nav.Link><Link to="/wakfu" class='center text-decoration-none text-light h5' onClick={this.props.getInitialValue ? (() => this.props.getInitialValue()) : ("")}>Wakfu</Link></Nav.Link>
+                                <Nav.Link><Link to="/autres-univers" class='center text-decoration-none text-light h5' onClick={this.props.getInitialValue ? (() => this.props.getInitialValue()) : ("")}>Autres Univers</Link></Nav.Link>
                             </Nav>
                             <Nav>
-                                <Nav.Link><Link to="/jeux-de-societe" class='center text-decoration-none' onClick={this.props.getInitialValue ? (() => this.props.getInitialValue()) : ("")}>Jeux de société</Link></Nav.Link>
-                                <Nav.Link><Link to="/livres" class='center text-decoration-none' onClick={this.props.getInitialValue ? (() => this.props.getInitialValue()) : ("")}>Livres</Link></Nav.Link>
-                                <Nav.Link><Link to="/produits-derives" class='center text-decoration-none' onClick={this.props.getInitialValue ? (() => this.props.getInitialValue()) : ("")}>Produits dérivés</Link></Nav.Link>
+                                <Nav.Link><Link to="/jeux-de-societe" class='center text-decoration-none text-light h5' onClick={this.props.getInitialValue ? (() => this.props.getInitialValue()) : ("")}>Jeux de société</Link></Nav.Link>
+                                <Nav.Link><Link to="/livres" class='center text-decoration-none text-light h5' onClick={this.props.getInitialValue ? (() => this.props.getInitialValue()) : ("")}>Livres</Link></Nav.Link>
+                                <Nav.Link><Link to="/produits-derives" class='center text-decoration-none text-light h5' onClick={this.props.getInitialValue ? (() => this.props.getInitialValue()) : ("")}>Produits dérivés</Link></Nav.Link>
                                 <Navbar.Brand>
                                     <Link to="/panier">
                                         <IconContext.Provider value={{ color: "white", size: '30px' }}>
