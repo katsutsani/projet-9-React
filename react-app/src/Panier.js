@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Button, Card, Col, Container, Row } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 import NavSite from './Navbar';
 import FooterPage from './Footer';
 import { FaTrash } from "react-icons/fa";
@@ -45,7 +44,7 @@ class Panier extends Component {
             </Col>
             <Col sm={1}>
               <Row>
-                <p class='text-center'>Modif</p>
+                <p class='text-center'>Modification</p>
               </Row>
             </Col>
           </Row>
