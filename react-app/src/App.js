@@ -49,6 +49,10 @@ class App extends Component {
     localStorage.getItem('panier') && this.setState({ panier: [...JSON.parse(localStorage.getItem('panier'))] })
   }
 
+  removeArticleToCart = () =>{
+    
+  }
+
   Commande = async () => {
     const panier = JSON.stringify(this.state.panier)
     await fetch('http://localhost:1337/api/orders', {
