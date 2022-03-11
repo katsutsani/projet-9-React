@@ -46,86 +46,107 @@ class App extends Component {
     this.setState({
       Univers: Univers.data
     })
-    localStorage.getItem('panier') && this.setState({panier:[...JSON.parse(localStorage.getItem('panier'))]})
+    localStorage.getItem('panier') && this.setState({ panier: [...JSON.parse(localStorage.getItem('panier'))] })
   }
 
-  addToCart = (article) =>{
+  Commande = async () => {
+    const panier = JSON.stringify(this.state.panier)
+    await fetch('http://localhost:1337/api/orders?populate=*', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'charset=UTF-8'
+      },
+      body: JSON.stringify({
+        data: {
+          name: "commande",
+          articles: panier
+        }
+      })
+    })
+      .then(response => response.json())
+      .then(data => console.log(data))
+      .then(localStorage.clear());
+  }
+
+  addToCart = (article) => {
     this.setState({
-      panier:[...this.state.panier,article
+      panier: [...this.state.panier, article
       ]
-    },()=>localStorage.setItem('panier',JSON.stringify(this.state.panier)))
+    }, () => localStorage.setItem('panier', JSON.stringify(this.state.panier)))
   }
 
   render() {
     return (
       <>
-      <Router>
-        <Routes>
-          <Route exact path='/' element={<Accueil
-            articles={this.state.articles}
-            categories={this.state.categories}
-            sub_categories={this.state.sub_categories}
-            Universs={this.state.Univers}
-            panier={this.state.panier}
-            addToCart={this.addToCart} />} />
-          <Route exact path='/dofus' element={<AllArticles
-            articles={this.state.articles}
-            categories={this.state.categories}
-            sub_categories={this.state.sub_categories}
-            Universs={this.state.Univers}
-            panier={this.state.panier}
-            addToCart={this.addToCart} />} />
-          <Route exact path='/wakfu' element={<AllArticles
-            articles={this.state.articles}
-            categories={this.state.categories}
-            sub_categories={this.state.sub_categories}
-            Universs={this.state.Univers}
-            panier={this.state.panier}
-            addToCart={this.addToCart} />} />
-          <Route exact path='/jeux-de-societe' element={<AllArticles
-            articles={this.state.articles}
-            categories={this.state.categories}
-            sub_categories={this.state.sub_categories}
-            Universs={this.state.Univers}
-            panier={this.state.panier}
-            addToCart={this.addToCart} />} />
-          <Route exact path='/livres' element={<AllArticles
-            articles={this.state.articles}
-            categories={this.state.categories}
-            sub_categories={this.state.sub_categories}
-            Universs={this.state.Univers}
-            panier={this.state.panier}
-            addToCart={this.addToCart} />} />
-          <Route exact path='/produits-derives' element={<AllArticles
-            articles={this.state.articles}
-            categories={this.state.categories}
-            sub_categories={this.state.sub_categories}
-            Universs={this.state.Universs}
-            panier={this.state.panier}
-            addToCart={this.addToCart} />} />
-          <Route exact path='/autres-univers' element={<AllArticles
-            articles={this.state.articles}
-            categories={this.state.categories}
-            sub_categories={this.state.sub_categories}
-            Universs={this.state.Univers}
-            panier={this.state.panier}
-            addToCart={this.addToCart} />} />
-          <Route exact path='/panier' element={<Panier
-            articles={this.state.articles}
-            categories={this.state.categories}
-            sub_categories={this.state.sub_categories}
-            Universs={this.state.Univers}
-            panier={this.state.panier}
-            addToCart={this.addToCart} />} />
-          <Route exact path='/article/:id' element={<Article
-            articles={this.state.articles}
-            categories={this.state.categories}
-            sub_categories={this.state.sub_categories}
-            Universs={this.state.Univers}
-            panier={this.state.panier}
-            addToCart={this.addToCart} />} />
-        </Routes>
-      </Router>
+        <Router>
+          <Routes>
+            <Route exact path='/' element={<Accueil
+              articles={this.state.articles}
+              categories={this.state.categories}
+              sub_categories={this.state.sub_categories}
+              Universs={this.state.Univers}
+              panier={this.state.panier}
+              addToCart={this.addToCart} />} />
+            <Route exact path='/dofus' element={<AllArticles
+              articles={this.state.articles}
+              categories={this.state.categories}
+              sub_categories={this.state.sub_categories}
+              Universs={this.state.Univers}
+              panier={this.state.panier}
+              addToCart={this.addToCart} />} />
+            <Route exact path='/wakfu' element={<AllArticles
+              articles={this.state.articles}
+              categories={this.state.categories}
+              sub_categories={this.state.sub_categories}
+              Universs={this.state.Univers}
+              panier={this.state.panier}
+              addToCart={this.addToCart} />} />
+            <Route exact path='/jeux-de-societe' element={<AllArticles
+              articles={this.state.articles}
+              categories={this.state.categories}
+              sub_categories={this.state.sub_categories}
+              Universs={this.state.Univers}
+              panier={this.state.panier}
+              addToCart={this.addToCart} />} />
+            <Route exact path='/livres' element={<AllArticles
+              articles={this.state.articles}
+              categories={this.state.categories}
+              sub_categories={this.state.sub_categories}
+              Universs={this.state.Univers}
+              panier={this.state.panier}
+              addToCart={this.addToCart} />} />
+            <Route exact path='/produits-derives' element={<AllArticles
+              articles={this.state.articles}
+              categories={this.state.categories}
+              sub_categories={this.state.sub_categories}
+              Universs={this.state.Universs}
+              panier={this.state.panier}
+              addToCart={this.addToCart} />} />
+            <Route exact path='/autres-univers' element={<AllArticles
+              articles={this.state.articles}
+              categories={this.state.categories}
+              sub_categories={this.state.sub_categories}
+              Universs={this.state.Univers}
+              panier={this.state.panier}
+              addToCart={this.addToCart} />} />
+            <Route exact path='/panier' element={<Panier
+              articles={this.state.articles}
+              categories={this.state.categories}
+              sub_categories={this.state.sub_categories}
+              Universs={this.state.Univers}
+              panier={this.state.panier}
+              addToCart={this.addToCart}
+              commande={this.Commande} />} />
+            <Route exact path='/article/:id' element={<Article
+              articles={this.state.articles}
+              categories={this.state.categories}
+              sub_categories={this.state.sub_categories}
+              Universs={this.state.Univers}
+              panier={this.state.panier}
+              addToCart={this.addToCart} />} />
+          </Routes>
+        </Router>
       </>
     )
   }

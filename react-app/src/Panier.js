@@ -50,95 +50,52 @@ class Panier extends Component {
             </Col>
           </Row>
           <ColoredLine color="black" />
-          <Row>
-            <Col sm={3}>
+          {this.props.panier && this.props.panier.map((article) =>
+            <>
               <Row>
-                requette image
-              </Row>
-            </Col>
-            <Col sm={6}>
-              <Row>
-                requette description / titre
-              </Row>
-            </Col>
-            <Col sm={2}>
-              <Row>
-                Prix
-              </Row>
-            </Col>
-            <Col sm={1}>
-              <Row>
-                <Col className='d-flex align-items-center justify-content-center'>
-                  <IconContext.Provider value={{ color: "black", size: '25px' }}>
-                    <div>
-                      < FaTrash />
-                    </div>
-                  </IconContext.Provider>
+                <Col sm={3}>
+                  <Row>
+                    {article.attributes.image.data[0].attributes.url ? (
+                      <>
+                        <img class="ImgCard w-50" variant="top" src={"http://localhost:1337" + article.attributes.image.data[0].attributes.url} />
+                      </>
+                    ) : ("")}
+                  </Row>
                 </Col>
-                <Col className='d-flex align-items-center justify-content-center'>
-                  <IconContext.Provider value={{ color: "black", size: '25px' }}>
-                    <div>
-                      <FiExternalLink />
-                    </div>
-                  </IconContext.Provider>
+                <Col sm={6}>
+                  <Row>
+                    <p>{article.attributes.name}<br/><br/>{article.attributes.description}</p>
+                  </Row>
+                </Col>
+                <Col sm={2}>
+                  <Row>
+                  <p>{article.attributes.prix}</p>
+                  </Row>
+                </Col>
+                <Col sm={1}>
+                  <Row>
+                    <Col className='d-flex align-items-center justify-content-center'>
+                      <IconContext.Provider value={{ color: "black", size: '25px' }}>
+                        <div>
+                          < FaTrash />
+                        </div>
+                      </IconContext.Provider>
+                    </Col>
+                    <Col className='d-flex align-items-center justify-content-center'>
+                      <IconContext.Provider value={{ color: "black", size: '25px' }}>
+                        <div>
+                          <Link to={"/article/"+article.id}><FiExternalLink /></Link>
+                        </div>
+                      </IconContext.Provider>
+                    </Col>
+                  </Row>
                 </Col>
               </Row>
-            </Col>
-          </Row>
-          <ColoredLine color="black" />
-
-
-
-
-          <Row>
-            <Col className="around_articles">
-              <Row xs={1} md={1} className="g-4">
-                {
-                  this.props.panier && this.props.panier.map((article) =>
-                    <>
-                      {console.log(article)}
-                      <Col>
-                        <Card className="carte">
-                          {article.attributes.image.data[0].attributes.url ? (
-                            <>
-                              <img class="ImgCard" variant="top" height="100px" width="100px" src={"http://localhost:1337" + article.attributes.image.data[0].attributes.url} />
-                              <Card.Body>
-                                <Card.Title className='titleCardImgPanier'>
-                                  {article.attributes.name}
-                                </Card.Title>
-                                <Card.Text className='descCardImgPanier'>
-                                  {article.attributes.description}
-                                </Card.Text>
-                                <Link to={"/article/" + article.id}><Button className="viewButtonImgPanier">View</Button></Link>
-
-                              </Card.Body>
-                            </>
-                          ) : (
-                            <>
-                              <Card.Body>
-                                <Card.Title className='titleCardPanier'>
-                                  {article.attributes.name}
-                                </Card.Title>
-                                <Card.Text className='descCardPanier'>
-                                  {article.attributes.description}
-                                </Card.Text>
-                                <Link to={"/article/" + article.id}><Button className="viewButtonPanier">View</Button></Link>
-
-                              </Card.Body>
-                            </>
-                          )}
-
-                        </Card>
-                      </Col>
-                    </>
-
-                  )
-                }
-              </Row>
-            </Col>
-
-          </Row>
+              <ColoredLine color="black" />
+            </>
+          )}
         </Container>
+        <Button onClick={() => this.props.commande()}>Commander</Button>
         <FooterPage />
       </>
     );
